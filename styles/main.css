@@ -1,0 +1,97 @@
+#navmain {
+    /* Barra de Navegação */
+  
+    position: absolute;
+    width: 1920px;
+    height: 100px;
+    left: 0px;
+    top: 0px;
+  
+    background: #2e3038;
+  }
+  
+  #retlogo {
+    /* Retângulo Logo */
+  
+    position: absolute;
+    width: 437px;
+    height: 100px;
+    left: 88px;
+    top: 0px;
+  
+    background: #b1b4be;
+  }
+  
+  #imglogo {
+    /* Logo */
+  
+    box-sizing: border-box;
+  
+    position: absolute;
+    width: 397.5px;
+    height: 50px;
+    left: 21px;
+    top: 25px;
+  
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+  
+  #comousar {
+    /* Botão como usar */
+  
+    position: absolute;
+    width: 159px;
+    height: 36px;
+    left: 637px;
+    top: 32px;
+  
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+  
+    color: #ffffff;
+  }
+  
+  #ptransporte {
+    /* Pontos de transporte */
+  
+    position: absolute;
+    width: 311px;
+    height: 36px;
+    left: 1000px;
+    top: 32px;
+  
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+  
+    color: #ffffff;
+  }
+  
+  .divisoria {
+    /* Divisórias */
+  
+    position: absolute;
+    width: 1px;
+    height: 61px;
+  
+    background: #d9d9d9;
+  }
+  
+  #divcomousar {
+    /* Divisória Como Usar */
+  
+    left: 892px;
+    top: 20px;
+  }
+  
+  #divptransporte {
+    /* Divisória 2 */
+  
+    left: 1376px;
+    top: 20px;
+  }
