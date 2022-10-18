@@ -12,29 +12,113 @@
       href="./styles/main.css"
     />
     <script src="./scripts/main.js"></script>
+    <link rel="stylesheet" href="./fonts/inter/inter.css" />
   </head>
   <body>
     <nav id="navmain">
       <a href="./index.html">
         <div class="retangulo" id="retlogo">
-          <img
-            id="imglogo"
-            src="./images/RENACARD_logo (1).png"
-            alt="A logo do renacard, bilhete urbano"
-            title="Logo"
-          />
+          <img id="imglogo" src="./images/RENACARD_logo.png" title="RENACARD" />
         </div>
       </a>
       <a id="comousar" href="./pages/como_usar.html">Como usar</a>
-      <div class="divisoria" id="divcomousar"></div>
+      <div class="divvertical" id="divcomousar"></div>
       <a id="ptransporte" href="./pages/pontos_transporte.html"
         >Pontos de transporte</a
       >
-      <div class="divisoria" id="divptransporte"></div>
+      <div class="divvertical" id="divptransporte"></div>
     </nav>
     <main>
-      <section></section>
+      <header id="headermain">Recarga do Bilhete Urbano</header>
+      <div class="retangulo" id="retautenticar">
+        <a id="autenticar" href="./pages/autenticar_cod.html">Autenticar</a>
+      </div>
+      <div class="divhorizontal" id="divrecarga"></div>
+      <section id="rechargetypes">
+        <article id="recunico">
+          <a href="./pages/recarga_unico.html">
+            <img
+              class="imgrecarga"
+              id="imgunico"
+              src="./images/RENACARD_unico.png"
+              title="Bilhete Unico"
+            />
+          </a>
+          <div class="titlerecarga" id="titleunico">Bilhete Único</div>
+          <div class="subtitlerecarga" id="subtitleunico1">Preço: R$00,00</div>
+          <div class="subtitlerecarga" id="subtitleunico2">
+            Um uso livre de transportes públicos por 40 minutos*
+          </div>
+        </article>
+        <article id="recduplo">
+          <a href="./pages/recarga_duplo.html">
+            <img
+              class="imgrecarga"
+              id="imgduplo"
+              src="./images/RENACARD_duplo.png"
+              title="Bilhete Duplo"
+            />
+          </a>
+          <div class="titlerecarga" id="titleduplo">Bilhete Duplo</div>
+          <div class="subtitlerecarga" id="subtitleduplo1">Preço: R$00,00</div>
+          <div class="subtitlerecarga" id="subtitleduplo2">
+            Dois usos livres de transportes públicos por 40 minutos cada*
+          </div>
+        </article>
+        <article id="recsete">
+          <a href="./pages/recarga_sete.html">
+            <img
+              class="imgrecarga"
+              id="imgsete"
+              src="./images/RENACARD_sete.png"
+              title="Bilhete Sete Dias"
+            />
+          </a>
+          <div class="titlerecarga" id="titlesete">Bilhete 7 Dias</div>
+          <div class="subtitlerecarga" id="subtitlesete1">Preço: R$00,00</div>
+          <div class="subtitlerecarga" id="subtitlesete2">
+            Uso livre de transportes públicos em uma semana*
+          </div>
+        </article>
+        <article id="rectrinta">
+          <a href="./pages/recarga_trinta.html">
+            <img
+              class="imgrecarga"
+              id="imgtrinta"
+              src="./images/RENACARD_trinta.png"
+              title="Bilhete Trinta Dias"
+            />
+          </a>
+          <div class="titlerecarga" id="titletrinta">Bilhete Trinta</div>
+          <div class="subtitlerecarga" id="subtitletrinta1">Preço: R$00,00</div>
+          <div class="subtitlerecarga" id="subtitletrinta2">
+            Uso livre de transportes públicos em um mês*
+          </div>
+        </article>
+        <div id="referencia">
+          *Para mais detalhes sobre o uso dos bilhetes, clique em “Como usar” no
+          topo da página
+        </div>
+      </section>
+      <div class="divhorizontal" id="divgerar"></div>
+      <div class="retbottom" id="retgerar">
+        <a class="buttonbottom" id="gerar" href="./pages/gerar_cod.html"
+          >Gerar Bilhete</a
+        >
+      </div>
+      <div class="retbottom" id="retrelatorio">
+        <a class="buttonbottom" id="relatorio" href="./pages/relatorio_cod.html"
+          >Relatório</a
+        >
+      </div>
     </main>
-    <footer></footer>
+    <footer id="retfooter">
+      <p id="project">Projeto Integrador 2: Bilhete Urbano</p>
+      <p id="members">
+        André Laudares Soares - 22001646 Guilherme Ferreira Jorge - 22007283
+        Luca Diniz Santos - 22011392 Matheus Ribeiro Marafon - 22004817 Raul
+        Migliari - 22005575
+      </p>
+    </footer>
   </body>
 </html>
