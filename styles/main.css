@@ -11,10 +11,10 @@
   /* Barra de Navegação */
 
   position: absolute;
-  width: 1440px;
-  height: 75px;
-  left: 0px;
-  top: 0px;
+  width: 100%;
+  height: 5.208vw;
+  left: 0vw;
+  top: 0vw;
 
   background: #2e3038;
 }
@@ -23,10 +23,10 @@
   /* Retângulo Logo */
 
   position: absolute;
-  width: 327.75px;
-  height: 75px;
-  left: 66px;
-  top: 0px;
+  width: 22.76vw;
+  height: 5.208vw;
+  left: 4.583vw;
+  top: 0vw;
 
   background: #b1b4be;
 }
@@ -37,10 +37,10 @@
   box-sizing: border-box;
 
   position: absolute;
-  width: 298.12px;
-  height: 37.5px;
-  left: 14.25px;
-  top: 18.75px;
+  width: 20.703vw;
+  height: 2.604vw;
+  left: 0.99vw;
+  top: 1.302vw;
 
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
 }
@@ -49,16 +49,16 @@
   /* Botão como usar */
 
   position: absolute;
-  width: 120px;
-  height: 27px;
-  left: 471.75px;
-  top: 24px;
+  width: 8.333vw;
+  height: 1.875vw;
+  left: 32.76vw;
+  top: 1.667vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 22.5px;
-  line-height: 27px;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
   text-decoration: none;
 
   color: #ffffff;
@@ -68,16 +68,16 @@
   /* Pontos de transporte */
 
   position: absolute;
-  width: 233px;
-  height: 27px;
-  left: 733.5px;
-  top: 24px;
+  width: 16.181vw;
+  height: 1.875vw;
+  left: 50.938vw;
+  top: 1.667vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 22.5px;
-  line-height: 27px;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
   text-decoration: none;
 
   color: #ffffff;
@@ -87,8 +87,8 @@
   /* Divisórias verticais */
 
   position: absolute;
-  width: 0.75px;
-  height: 45.75px;
+  width: 0.052vw;
+  height: 3.177vw;
 
   background: #d9d9d9;
 }
@@ -96,31 +96,31 @@
 #divcomousar {
   /* Divisória Como Usar */
 
-  left: 669px;
-  top: 15px;
+  left: 46.458vw;
+  top: 1.042vw;
 }
 
 #divptransporte {
   /* Divisória 2 */
 
-  left: 1032px;
-  top: 15px;
+  left: 71.667vw;
+  top: 1.042vw;
 }
 
 #headermain {
   /* Header recarga do bilhete urbano */
 
   position: absolute;
-  width: 350px;
-  height: 33px;
-  left: 268.5px;
-  top: 127.5px;
+  width: 24.306vw;
+  height: 2.292vw;
+  left: 18.646vw;
+  top: 8.854vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 27px;
-  line-height: 33px;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
   /* identico ao box height */
 
   color: #000000;
@@ -130,29 +130,29 @@
   /* Retângulo autenticar */
 
   position: absolute;
-  width: 172.5px;
-  height: 43.5px;
-  left: 1149.75px;
-  top: 117.75px;
+  width: 11.979vw;
+  height: 3.021vw;
+  left: 79.844vw;
+  top: 8.177vw;
 
   background: #787e92;
-  border-radius: 27px;
+  border-radius: 1.875vw;
 }
 
 #autenticar {
   /* Botão autenticar */
 
   position: absolute;
-  width: 118px;
-  height: 27px;
-  left: 30px;
-  top: 8.25px;
+  width: 8.194vw;
+  height: 1.875vw;
+  left: 2.083vw;
+  top: 0.573vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 22.5px;
-  line-height: 27px;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
   text-decoration: none;
 
   color: #ffffff;
@@ -162,15 +162,15 @@
   /* Divisórias horizontais */
 
   position: absolute;
-  width: 950.25px;
-  height: 0px;
+  width: 65.99vw;
+  height: 0vw;
 }
 
 #divrecarga {
   /* Divisória recarga do bilhete - tipos de recarga */
 
-  left: 238.5px;
-  top: 175.88px;
+  left: 16.562vw;
+  top: 12.214vw;
 
   border: 0.75px solid #000000;
 }
@@ -181,51 +181,51 @@
   box-sizing: border-box;
 
   position: absolute;
-  width: 238.5px;
-  height: 148.5px;
+  width: 16.562vw;
+  height: 10.312vw;
 
-  border-radius: 15px;
+  border-radius: 1.042vw;
 }
 
 #imgunico {
   /* Imagem da recarga unico */
 
-  left: 180px;
-  top: 221.25px;
+  left: 12.5vw;
+  top: 15.365vw;
 }
 
 #imgduplo {
   /* Imagem da recarga duplo */
 
-  left: 726px;
-  top: 221.25px;
+  left: 50.417vw;
+  top: 15.365vw;
 }
 
 #imgsete {
   /* Imagem da recarga sete dias */
 
-  left: 180px;
-  top: 429px;
+  left: 12.5vw;
+  top: 29.792vw;
 }
 
 #imgtrinta {
   /* Imagem da recarga trinta dias */
 
-  left: 726px;
-  top: 429px;
+  left: 50.417vw;
+  top: 29.792vw;
 }
 
 .titlerecarga {
   /* Titulos dos tipos de recargas */
 
   position: absolute;
-  height: 24px;
+  height: 1.667vw;
 
   font-family: "Inter";
   font-style: italic;
   font-weight: 600;
-  font-size: 19.5px;
-  line-height: 24px;
+  font-size: 1.354vw;
+  line-height: 1.667vw;
 
   color: #000000;
 }
@@ -233,33 +233,33 @@
 #titleunico {
   /* Título da recarga unico */
 
-  width: 125px;
-  left: 431px;
-  top: 226px;
+  width: 8.681vw;
+  left: 29.931vw;
+  top: 15.694vw;
 }
 
 #titleduplo {
   /* Título da recarga duplo */
 
-  width: 126px;
-  left: 981px;
-  top: 226px;
+  width: 8.75vw;
+  left: 68.125vw;
+  top: 15.694vw;
 }
 
 #titlesete {
   /* Título da recarga sete dias */
 
-  width: 128px;
-  left: 431px;
-  top: 433.5px;
+  width: 8.889vw;
+  left: 29.931vw;
+  top: 30.104vw;
 }
 
 #titletrinta {
   /* Título da recarga trinta dias */
 
-  width: 142px;
-  left: 981px;
-  top: 433.5px;
+  width: 9.861vw;
+  left: 68.125vw;
+  top: 30.104vw;
 }
 
 .subtitlerecarga {
@@ -270,8 +270,8 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 13.5px;
-  line-height: 16px;
+  font-size: 0.938vw;
+  line-height: 1.111vw;
 
   color: #000000;
 }
@@ -279,89 +279,89 @@
 #subtitleunico1 {
   /* Preço da recarga unico */
 
-  width: 100px;
-  height: 16px;
-  left: 431px;
-  top: 253.5px;
+  width: 6.944vw;
+  height: 1.111vw;
+  left: 29.931vw;
+  top: 17.604vw;
 }
 
 #subtitleduplo1 {
   /* Preço da recarga duplo */
 
-  width: 100px;
-  height: 16px;
-  left: 981px;
-  top: 253.5px;
+  width: 6.944vw;
+  height: 1.111vw;
+  left: 68.125vw;
+  top: 17.604vw;
 }
 
 #subtitlesete1 {
   /* Preço da recarga sete dias */
 
-  width: 100px;
-  height: 16px;
-  left: 431px;
-  top: 461.25px;
+  width: 6.944vw;
+  height: 1.111vw;
+  left: 29.931vw;
+  top: 32.031vw;
 }
 
 #subtitletrinta1 {
   /* Preço da recarga trinta dias */
 
-  width: 100px;
-  height: 16px;
-  left: 981px;
-  top: 461.25px;
+  width: 6.944vw;
+  height: 1.111vw;
+  left: 68.125vw;
+  top: 32.031vw;
 }
 
 #subtitleunico2 {
   /* Explicação da recarga unico */
 
-  width: 277.5px;
-  height: 32px;
-  left: 431px;
-  top: 289px;
+  width: 19.271vw;
+  height: 2.222vw;
+  left: 29.931vw;
+  top: 20.069vw;
 }
 
 #subtitleduplo2 {
   /* Explicação da recarga duplo */
 
-  width: 277.5px;
-  height: 32px;
-  left: 981px;
-  top: 289px;
+  width: 19.271vw;
+  height: 2.222vw;
+  left: 68.125vw;
+  top: 20.069vw;
 }
 
 #subtitlesete2 {
   /* Explicação da recarga sete dias */
 
-  width: 277.5px;
-  height: 32px;
-  left: 431px;
-  top: 496.5px;
+  width: 19.271vw;
+  height: 2.222vw;
+  left: 29.931vw;
+  top: 34.479vw;
 }
 
 #subtitletrinta2 {
   /* Explicação da recarga trinta dias */
 
-  width: 277.5px;
-  height: 32px;
-  left: 981px;
-  top: 496.5px;
+  width: 19.271vw;
+  height: 2.222vw;
+  left: 68.125vw;
+  top: 34.479vw;
 }
 
 #referencia {
   /* Referência para como usar */
 
   position: absolute;
-  width: 479px;
-  height: 15px;
-  left: 268.5px;
-  top: 622.5px;
+  width: 33.264vw;
+  height: 1.042vw;
+  left: 18.646vw;
+  top: 43.229vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 100;
-  font-size: 12px;
-  line-height: 15px;
+  font-size: 0.833vw;
+  line-height: 1.042vw;
   /* identico ao box height */
 
   color: #000000;
@@ -370,8 +370,8 @@
 #divgerar {
   /* Divisória tipos de recarga - gerar bilhete */
 
-  left: 230.25px;
-  top: 644.25px;
+  left: 15.99vw;
+  top: 44.74vw;
 
   border: 0.75px solid #000000;
 }
@@ -380,38 +380,38 @@
   /* Retângulo para os botões na parte de baixo da página */
 
   position: absolute;
-  width: 251.25px;
-  height: 56.25px;
-  top: 667.5px;
+  width: 17.448vw;
+  height: 3.906vw;
+  top: 46.354vw;
 
   background: #787e92;
-  border-radius: 28.875px;
+  border-radius: 2.005vw;
 }
 
 #retgerar {
   /* Retângulo para o botão gerar bilhete */
 
-  left: 349.5px;
+  left: 24.271vw;
 }
 
 #retrelatorio {
   /* Retângulo para o botão relatório */
 
-  left: 832.5px;
+  left: 57.812vw;
 }
 
 .buttonbottom {
   /* Botões na parte de baixo da página */
 
   position: absolute;
-  height: 27px;
-  top: 14.25px;
+  height: 1.875vw;
+  top: 0.99vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 22.5px;
-  line-height: 27px;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
   text-decoration: none;
 
   color: #ffffff;
@@ -420,25 +420,25 @@
 #gerar {
   /* Botão gerar bilhete */
 
-  width: 144px;
-  left: 54px;
+  width: 10vw;
+  left: 3.75vw;
 }
 
 #relatorio {
   /* Botão relatorio */
 
-  width: 99px;
-  left: 79.5px;
+  width: 6.875vw;
+  left: 5.521vw;
 }
 
 footer {
   /* Retângulo rodapé */
 
   position: absolute;
-  width: 1440px;
-  height: 277px;
-  left: 0px;
-  top: 747px;
+  width: 100%;
+  height: 19.236vw;
+  left: 0vw;
+  top: 51.875vw;
 
   background: #2e3038;
 }
@@ -447,16 +447,16 @@ footer {
   /* Projeto Integrador 2 */
 
   position: absolute;
-  width: 394px;
-  height: 27px;
-  left: 66px;
-  top: 67px;
+  width: 27.361vw;
+  height: 1.875vw;
+  left: 4.583vw;
+  top: 4.653vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 22.5px;
-  line-height: 27px;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
 
   color: #ffffff;
 }
@@ -465,16 +465,16 @@ footer {
   /* Integrantes do grupo */
 
   position: absolute;
-  width: 411px;
-  height: 135px;
-  left: 961px;
-  top: 67px;
+  width: 28.542vw;
+  height: 9.375vw;
+  left: 66.736vw;
+  top: 4.653vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 22.5px;
-  line-height: 27px;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
   text-align: right;
 
   color: #ffffff;

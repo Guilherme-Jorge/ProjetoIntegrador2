@@ -11,10 +11,10 @@
   /* Barra de Navegação */
 
   position: absolute;
-  width: 1440px;
-  height: 75px;
-  left: 0px;
-  top: 0px;
+  width: 100%;
+  height: 5.208vw;
+  left: 0vw;
+  top: 0vw;
 
   background: #2e3038;
 }
@@ -23,10 +23,10 @@
   /* Retângulo Logo */
 
   position: absolute;
-  width: 327.75px;
-  height: 75px;
-  left: 66px;
-  top: 0px;
+  width: 22.76vw;
+  height: 5.208vw;
+  left: 4.583vw;
+  top: 0vw;
 
   background: #b1b4be;
 }
@@ -37,10 +37,10 @@
   box-sizing: border-box;
 
   position: absolute;
-  width: 298.12px;
-  height: 37.5px;
-  left: 14.25px;
-  top: 18.75px;
+  width: 20.703vw;
+  height: 2.604vw;
+  left: 0.99vw;
+  top: 1.302vw;
 
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
 }
@@ -49,16 +49,16 @@
   /* Botão como usar */
 
   position: absolute;
-  width: 120px;
-  height: 27px;
-  left: 471.75px;
-  top: 24px;
+  width: 8.333vw;
+  height: 1.875vw;
+  left: 32.76vw;
+  top: 1.667vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 22.5px;
-  line-height: 27px;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
   text-decoration: none;
 
   color: #ffffff;
@@ -68,16 +68,16 @@
   /* Pontos de transporte */
 
   position: absolute;
-  width: 233px;
-  height: 27px;
-  left: 733.5px;
-  top: 24px;
+  width: 16.181vw;
+  height: 1.875vw;
+  left: 50.938vw;
+  top: 1.667vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 22.5px;
-  line-height: 27px;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
   text-decoration: none;
 
   color: #ffffff;
@@ -87,8 +87,8 @@
   /* Divisórias verticais */
 
   position: absolute;
-  width: 0.75px;
-  height: 45.75px;
+  width: 0.052vw;
+  height: 3.177vw;
 
   background: #d9d9d9;
 }
@@ -96,31 +96,31 @@
 #divcomousar {
   /* Divisória Como Usar */
 
-  left: 669px;
-  top: 15px;
+  left: 46.458vw;
+  top: 1.042vw;
 }
 
 #divptransporte {
   /* Divisória 2 */
 
-  left: 1032px;
-  top: 15px;
+  left: 71.667vw;
+  top: 1.042vw;
 }
 
 #successgerar {
   /* Mensagem de geração */
 
   position: absolute;
-  width: 477px;
-  height: 33px;
-  left: 481px;
-  top: 167px;
+  width: 33.125vw;
+  height: 2.292vw;
+  left: 33.403vw;
+  top: 11.597vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 27px;
-  line-height: 33px;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
   /* identico ao box height */
 
   color: #000000;
@@ -130,16 +130,16 @@
   /* Código do bilhete */
 
   position: absolute;
-  width: 104px;
-  height: 33px;
-  left: 589px;
-  top: 207px;
+  width: 7.222vw;
+  height: 2.292vw;
+  left: 40.903vw;
+  top: 14.375vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 27px;
-  line-height: 33px;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
   /* identico ao box height */
 
   color: #000000;
@@ -151,12 +151,12 @@
   box-sizing: border-box;
 
   position: absolute;
-  width: 450px;
-  height: 282.56px;
-  left: 495px;
-  top: 292px;
+  width: 31.25vw;
+  height: 19.622vw;
+  left: 34.375vw;
+  top: 20.278vw;
 
-  border-radius: 25.5px;
+  border-radius: 1.771vw;
 
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
 }
@@ -165,10 +165,10 @@ footer {
   /* Retângulo rodapé */
 
   position: absolute;
-  width: 1440px;
-  height: 277px;
-  left: 0px;
-  top: 747px;
+  width: 100%;
+  height: 19.236vw;
+  left: 0vw;
+  top: 51.875vw;
 
   background: #2e3038;
 }
@@ -177,16 +177,16 @@ footer {
   /* Projeto Integrador 2 */
 
   position: absolute;
-  width: 394px;
-  height: 27px;
-  left: 66px;
-  top: 67px;
+  width: 27.361vw;
+  height: 1.875vw;
+  left: 4.583vw;
+  top: 4.653vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 22.5px;
-  line-height: 27px;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
 
   color: #ffffff;
 }
@@ -195,16 +195,16 @@ footer {
   /* Integrantes do grupo */
 
   position: absolute;
-  width: 411px;
-  height: 135px;
-  left: 961px;
-  top: 67px;
+  width: 28.542vw;
+  height: 9.375vw;
+  left: 66.736vw;
+  top: 4.653vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 22.5px;
-  line-height: 27px;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
   text-align: right;
 
   color: #ffffff;
