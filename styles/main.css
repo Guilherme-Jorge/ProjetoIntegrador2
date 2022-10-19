@@ -443,7 +443,7 @@
   background: #2e3038;
 }
 
-#project{
+#project {
   /* Projeto Integrador 2 */
 
   position: absolute;
@@ -452,16 +452,16 @@
   left: 66px;
   top: 67px;
 
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 22.5px;
   line-height: 27px;
 
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-#members{
+#members {
   /* Integrantes do grupo */
 
   position: absolute;
@@ -470,12 +470,12 @@
   left: 961px;
   top: 67px;
 
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 22.5px;
   line-height: 27px;
   text-align: right;
 
-  color: #FFFFFF;
+  color: #ffffff;
 }
