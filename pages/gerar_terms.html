@@ -39,11 +39,13 @@
         width="977.25px"
         height="493.5px"
       ></iframe>
-      <input type="checkbox" id="accept" />
-      <div id="textaccept">Aceito os termos de uso</div>
-      <div id="retgerar">
-        <a id="gerar" href="../pages/gerar.html">Gerar bilhete urbano</a>
-      </div>
+      <form onclick="return checkFormAccept(this)">
+        <input type="checkbox" id="accept" name="accept" />
+        <div id="textaccept">Aceito os termos de uso</div>
+        <div id="retgerar">
+          <a id="gerar" href="../pages/gerar.html">Gerar bilhete urbano</a>
+        </div>
+      </form>
     </main>
     <footer>
       <p id="project">Projeto Integrador 2: Bilhete Urbano</p>
