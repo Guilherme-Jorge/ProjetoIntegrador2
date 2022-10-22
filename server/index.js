@@ -44,11 +44,8 @@ function BD() {
   };
 }
 
-let codigo = 0;
-
 function Bilhete(bd) {
   this.bd = bd;
-
 
   this.insert = async function () {
     const temp_codigo = generateCodigo();
@@ -70,7 +67,7 @@ function Bilhete(bd) {
       await conexao.execute(sql2);
 
       conexao.close();
-      codigo = temp_codigo;
+      return temp_codigo;
     } else {
       this.insert();
     }
@@ -107,7 +104,7 @@ async function ativacaoDoServidor() {
   // app.get("/Bilhete/:codigo", recuperacaoDeUm);
   // app.delete("/Bilhete/:codigo", remocao);
   app.get('/api/bilhete', async (req, res) => {
-    await global.Bilhete.insert();
+    const codigo = await global.Bilhete.insert();
 
     return res.json({
       id: codigo,
