@@ -145,6 +145,25 @@
   color: #000000;
 }
 
+#cod{
+  /* Código gerado */
+
+  position: absolute;
+
+  left: 48.503vw;
+  top: 14.375vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+
+  /* identico ao box height */
+
+  color: #000000;
+}
+
 #imgbilhete {
   /* Bilhete criado */
 
