@@ -1,11 +1,8 @@
-// http://localhost:3333/api/users
+// http://localhost:3333/api/
 
-// app.get("/api/users", (req, res) => {
-//   let code = generateCode();
-//   return res.json({
-//     id: code,
-//   });
-// });
+const oracledb = require("oracledb");
+const express = require("express");
+const cors = require("cors");
 
 function generateCodigo() {
   const code = Math.floor(Math.random() * 9999999999);
@@ -24,8 +21,9 @@ function BD() {
         password: "Omhsw7",
         connectionString: "172.16.12.48:1521/xe",
       });
-    } catch (erro) {
+    } catch (err) {
       console.log("Não foi possível estabelecer conexão com o BD!");
+      console.log(err);
       process.exit(1);
     }
 
@@ -46,9 +44,9 @@ function Bilhete(bd) {
   this.bd = bd;
 
   this.insert = async function () {
-    const temp_codigo = generateCodigo();
-
     const conexao = await this.bd.getConexao();
+
+    const temp_codigo = generateCodigo();
 
     const checkCodigo = await conexao.execute(
       "SELECT * FROM Bilhete WHERE cod_bilhete = :0",
@@ -85,26 +83,19 @@ function middleWareGlobal(req, res, next) {
 }
 
 async function ativacaoDoServidor() {
-  const oracledb = require("oracledb");
   oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
-  
+
   const bd = new BD();
   await bd.estrutureSe();
   global.Bilhete = new Bilhete(bd);
 
-  const express = require("express");
   const app = express();
 
-  const cors = require("cors"); // elimina problemas com a Google de bloqueio de API
-  app.use(cors());
+  app.use(cors()); // elimina problemas com a Google de bloqueio de API
 
   app.use(express.json()); // faz com que o express consiga processar JSON
   app.use(middleWareGlobal); // app.use cria o middleware global
 
-  // app.post("/Bilhete", inclusao);
-  // app.get("/Bilhete", recuperacaoDeTodos);
-  // app.get("/Bilhete/:codigo", recuperacaoDeUm);
-  // app.delete("/Bilhete/:codigo", remocao);
   app.get("/api/bilhete", async (req, res) => {
     const codigo = await global.Bilhete.insert();
 
