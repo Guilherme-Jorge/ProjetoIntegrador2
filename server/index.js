@@ -18,8 +18,6 @@ function BD() {
   this.getConexao = async function () {
     if (global.conexao) return global.conexao;
 
-    const oracledb = require("oracledb");
-
     try {
       global.conexao = await oracledb.getConnection({
         user: "EBD1ES82226",
@@ -66,11 +64,12 @@ function Bilhete(bd) {
       const sql2 = "COMMIT";
       await conexao.execute(sql2);
 
-      conexao.close();
       return temp_codigo;
     } else {
       this.insert();
     }
+
+    conexao.close();
   };
 }
 
@@ -86,6 +85,9 @@ function middleWareGlobal(req, res, next) {
 }
 
 async function ativacaoDoServidor() {
+  const oracledb = require("oracledb");
+  oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
+  
   const bd = new BD();
   await bd.estrutureSe();
   global.Bilhete = new Bilhete(bd);
@@ -103,7 +105,7 @@ async function ativacaoDoServidor() {
   // app.get("/Bilhete", recuperacaoDeTodos);
   // app.get("/Bilhete/:codigo", recuperacaoDeUm);
   // app.delete("/Bilhete/:codigo", remocao);
-  app.get('/api/bilhete', async (req, res) => {
+  app.get("/api/bilhete", async (req, res) => {
     const codigo = await global.Bilhete.insert();
 
     return res.json({
