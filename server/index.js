@@ -1,4 +1,8 @@
 // http://localhost:3333/api/
+/**
+ * connectionString: "172.16.12.48:1521/xe"
+ * connectionString: "ceatudb02:1521/xe"
+ */
 
 const oracledb = require("oracledb");
 const express = require("express");
@@ -19,7 +23,7 @@ function BD() {
       global.conexao = await oracledb.getConnection({
         user: "EBD1ES82226",
         password: "Omhsw7",
-        connectionString: "172.16.12.48:1521/xe",
+        connectionString: "ceatudb02:1521/xe",
       });
     } catch (err) {
       console.log("Não foi possível estabelecer conexão com o BD!");
@@ -45,15 +49,16 @@ function Bilhete(bd) {
 
   this.insert = async function () {
     const conexao = await this.bd.getConexao();
-
+    
     const temp_codigo = generateCodigo();
 
     const checkCodigo = await conexao.execute(
       "SELECT * FROM Bilhete WHERE cod_bilhete = :0",
       [temp_codigo]
     );
+    console.log(checkCodigo);
 
-    if (checkCodigo.rows != []) {
+    try {
       const sql1 =
         "INSERT INTO Bilhete (cod_bilhete, data_hora_geracao_bilhete) VALUES (:0, SYSTIMESTAMP(0))";
       const dado = [temp_codigo];
@@ -63,11 +68,9 @@ function Bilhete(bd) {
       await conexao.execute(sql2);
 
       return temp_codigo;
-    } else {
-      this.insert();
+    } catch (err) {
+      this.insert()
     }
-
-    conexao.close();
   };
 }
 
