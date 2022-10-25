@@ -2,6 +2,8 @@
 /**
  * connectionString: "172.16.12.48:1521/xe"
  * connectionString: "ceatudb02:1521/xe"
+ * 
+ * TODO Codificar o sistema de recarga
  */
 
 const oracledb = require("oracledb");
