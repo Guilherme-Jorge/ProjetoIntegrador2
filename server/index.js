@@ -3,13 +3,11 @@
  * connectionString: "172.16.12.48:1521/xe"
  * connectionString: "ceatudb02:1521/xe"
  *
- * TODO Codificar o sistema de recarga
  */
 
 const oracledb = require("oracledb");
 const express = require("express");
 const cors = require("cors");
-const axios = require("axios");
 
 function generateCodigo() {
   const code = Math.floor(Math.random() * 9999999999);
@@ -75,6 +73,42 @@ function Bilhete(bd) {
       this.insert();
     }
   };
+
+  this.recharge = async function (code, type) {
+    const conexao = await this.bd.getConexao();
+
+    if (type == 0) {
+      type = ["Único"];
+    }
+
+    if (type == 1) {
+      type = ["Duplo"];
+    }
+
+    if (type == 2) {
+      type = ["7 Dias"];
+    }
+
+    if (type == 3) {
+      type = ["30 Dias"];
+    }
+
+    const checkCodigo = await conexao.execute(
+      "SELECT * FROM Bilhete WHERE cod_bilhete = :0",
+      [code]
+    );
+    console.log(checkCodigo);
+
+    if (checkCodigo.rows != []) {
+      try {
+        const sql1 =
+          "INSERT INTO Recarga (data_hora_recarga, tipo_recarga) VALUES (SYSTIMESTAMP(0), :0)";
+        await conexao.execute(sql1, type);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
 }
 
 function middleWareGlobal(req, res, next) {
@@ -98,8 +132,6 @@ async function ativacaoDoServidor() {
   const app = express();
   app.use(cors()); // elimina problemas com a Google de bloqueio de API
 
-  const appaxios = axios();
-
   app.use(express.json()); // faz com que o express consiga processar JSON
   app.use(middleWareGlobal); // app.use cria o middleware global
 
@@ -111,9 +143,13 @@ async function ativacaoDoServidor() {
     });
   });
 
-  axios.post("/api/bilhete", async (req, res) => {
-    return res.json({ id: codigo });
-  });
+  app.post(
+    "/api/bilhete/:recharge/:id",
+    { recharge: type, id: code },
+    async (req, res) => {
+      await global.Bilhete.recharge(code, type);
+    }
+  );
 
   console.log("Servidor ativo na porta 3333...");
   app.listen(3333);
