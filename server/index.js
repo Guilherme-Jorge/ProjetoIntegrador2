@@ -2,13 +2,14 @@
 /**
  * connectionString: "172.16.12.48:1521/xe"
  * connectionString: "ceatudb02:1521/xe"
- * 
+ *
  * TODO Codificar o sistema de recarga
  */
 
 const oracledb = require("oracledb");
 const express = require("express");
 const cors = require("cors");
+const axios = require("axios");
 
 function generateCodigo() {
   const code = Math.floor(Math.random() * 9999999999);
@@ -51,7 +52,7 @@ function Bilhete(bd) {
 
   this.insert = async function () {
     const conexao = await this.bd.getConexao();
-    
+
     const temp_codigo = generateCodigo();
 
     const checkCodigo = await conexao.execute(
@@ -71,7 +72,7 @@ function Bilhete(bd) {
 
       return temp_codigo;
     } catch (err) {
-      this.insert()
+      this.insert();
     }
   };
 }
@@ -95,8 +96,9 @@ async function ativacaoDoServidor() {
   global.Bilhete = new Bilhete(bd);
 
   const app = express();
-
   app.use(cors()); // elimina problemas com a Google de bloqueio de API
+
+  const appaxios = axios();
 
   app.use(express.json()); // faz com que o express consiga processar JSON
   app.use(middleWareGlobal); // app.use cria o middleware global
@@ -107,6 +109,10 @@ async function ativacaoDoServidor() {
     return res.json({
       id: codigo,
     });
+  });
+
+  axios.post("/api/bilhete", async (req, res) => {
+    return res.json({ id: codigo });
   });
 
   console.log("Servidor ativo na porta 3333...");

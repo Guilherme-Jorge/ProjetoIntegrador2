@@ -1,13 +1,22 @@
 fetch("http://localhost:3333/api/bilhete")
   .then((data) => data.json())
   .then((res) => {
-    document.getElementById("successgerar").innerHTML =
-      "Seu bilhete foi gerado com sucesso!";
-    document.getElementById("codbilhete").innerHTML = "Código:";
-    document.getElementById("cod").innerHTML = res.id;
+    resultado(res);
   })
-  .catch(() => {
-    document.getElementById("successgerar").innerHTML =
-      "Ocorreu um erro na geração!";
-    document.getElementById("codbilhete").innerHTML = "Tente novamente!";
+  .catch((err) => {
+    erro(err);
   });
+
+function resultado(dados) {
+  document.getElementById("successgerar").innerHTML =
+    "Seu bilhete foi gerado com sucesso!";
+  document.getElementById("codbilhete").innerHTML = "Código:";
+  document.getElementById("cod").innerHTML = dados.id;
+}
+
+function erro(err) {
+  document.getElementById("successgerar").innerHTML =
+    "Ocorreu um erro na geração!";
+  document.getElementById("codbilhete").innerHTML = "Tente novamente!";
+  console.log(err);
+}
