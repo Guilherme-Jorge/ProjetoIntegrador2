@@ -9,9 +9,10 @@
       rel="stylesheet"
       type="text/css"
       media="screen"
-      href="../styles/autenticar_cod.css"
+      href="../styles/recarga_cod.css"
     />
-    <script src="../scripts/autenticar_cod.js"></script>
+    <script src="../server/node_modules/axios/dist/axios.min.js"></script>
+    <script src="../scripts/recarga_cod_1.js"></script>
     <link rel="stylesheet" href="../fonts/inter/inter.css" />
   </head>
   <body>
@@ -34,15 +35,20 @@
     </nav>
     <main>
       <img src="../images/RENACARD_logo.png" id="imglogocentral" />
-      <form id="caixatexto">
+      <form id="caixatexto" onsubmit="fazRecarga()">
         <input
-          type="text"
-          class="input"
+          type="number"
           placeholder="Digite o número do seu bilhete"
+          id="cod"
         />
-        <button class="btnbuscar" type="submit"></button>
+        <button class="btnbuscar" type="submit" value="Submit">
+          <img id="imglupa" src="../images/lupa.png" />
+        </button>
       </form>
-      <img id="imglupa" src="../images/lupa.png" />
+      <div id="texttype">Tipo da Recarga:</div>
+      <br />
+      <div id="type">Duplo</div>
+      <div id="textpreco">Preço: R$14,00</div>
     </main>
     <footer id="retfooter">
       <p id="project">Projeto Integrador 2: Bilhete Urbano</p>

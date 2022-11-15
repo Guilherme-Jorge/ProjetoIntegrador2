@@ -4,14 +4,14 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RENACARD: Entrar código</title>
+    <title>RENACARD: Geração Bilhete Sucesso</title>
     <link
       rel="stylesheet"
       type="text/css"
       media="screen"
-      href="../styles/autenticar_cod.css"
+      href="../styles/recarga.css"
     />
-    <script src="../scripts/autenticar_cod.js"></script>
+    <script src="../scripts/recarga.js"></script>
     <link rel="stylesheet" href="../fonts/inter/inter.css" />
   </head>
   <body>
@@ -32,19 +32,24 @@
       >
       <div class="divvertical" id="divptransporte"></div>
     </nav>
-    <main>
-      <img src="../images/RENACARD_logo.png" id="imglogocentral" />
-      <form id="caixatexto">
-        <input
-          type="text"
-          class="input"
-          placeholder="Digite o número do seu bilhete"
-        />
-        <button class="btnbuscar" type="submit"></button>
-      </form>
-      <img id="imglupa" src="../images/lupa.png" />
-    </main>
-    <footer id="retfooter">
+    <div id="estado-recarga"></div>
+    <div id="linha-recarga"></div>
+    <div id="ret-recarga">
+      <div id="tipo">Tipo da recarga</div>
+      <div id="ret-tipo">
+        <div class="info" id="tipo-recarga"></div>
+      </div>
+      <div id="data">Data</div>
+      <div class="ret-info" id="ret-data">
+        <div class="info" id="data-recarga"></div>
+      </div>
+      <div id="preco">Preço</div>
+      <div class="ret-info" id="ret-preco">
+        <div class="info" id="preco-recarga"></div>
+      </div>
+    </div>
+
+    <footer>
       <p id="project">Projeto Integrador 2: Bilhete Urbano</p>
       <p id="members">
         André Laudares Soares - 22001646 Guilherme Ferreira Jorge - 22007283
