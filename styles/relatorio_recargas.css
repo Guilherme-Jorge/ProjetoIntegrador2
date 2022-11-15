@@ -108,7 +108,183 @@
   }
 
 
+  #titulo {
 
+    /* Relatório de recargas */
+
+
+    position: absolute;
+    width: 281px;
+    height: 33px;
+    left: 579px;
+    top: 123px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 33px;
+    /* identical to box height */
+
+
+    color: #000000;
+  }
+
+  #linha{
+
+    /* Line 7 */
+
+
+    position: absolute;
+    width: 600px;
+    height: 0px;
+    left: 420px;
+    top: 169px;
+
+    border: 0.75px solid #000000;
+  }
+
+  #bilhete{
+
+    /* Bilhete único */
+
+
+    position: absolute;
+    width: 197.25px;
+    height: 30px;
+    left: 104.25px;
+    top: 215.25px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+
+    color: #2E3038;
+  }
+
+  #codigo{
+
+    /* Código: ##### */
+
+
+    position: absolute;
+    width: 220.5px;
+    height: 30px;
+    left: 387.75px;
+    top: 216.75px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+
+    color: #2E3038;
+  }
+
+  #data{
+
+    /* Data da geração do bilhete: ##/##/## */
+
+
+    position: absolute;
+    width: 570.75px;
+    height: 30px;
+    left: 747px;
+    top: 217.5px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+
+    color: #2E3038;
+
+  }
+
+  #tipo{
+
+    /* Tipo */
+
+
+    position: absolute;
+    width: 75.75px;
+    height: 30px;
+    left: 165px;
+    top: 303px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+
+    color: #2E3038;
+  }
+
+  #data_table{
+
+    /* Data */
+
+
+    position: absolute;
+    width: 71.25px;
+    height: 30px;
+    left: 403.5px;
+    top: 303px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+
+    color: #2E3038;
+  }
+
+  #utilizar{
+
+    /* Utilização */
+
+
+    position: absolute;
+    width: 151.5px;
+    height: 30px;
+    left: 660.75px;
+    top: 303px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+
+    color: #2E3038;
+
+  }
+
+  #hora{
+
+    /* Hora da Utilização */
+
+
+    position: absolute;
+    width: 270px;
+    height: 30px;
+    left: 1020px;
+    top: 303.75px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+
+    color: #2E3038;
+  }
 
 
   footer {
