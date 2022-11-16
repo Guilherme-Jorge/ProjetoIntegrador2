@@ -248,7 +248,26 @@
   position: absolute;
   width: 576px;
   height: 29px;
-  left: 432px;
+  left: 400px;
+  top: 640px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+
+  color: #000000;
+}
+
+#tempo {
+  /* Você tem 40:00 restante nesta recarga */
+
+  position: absolute;
+  width: 576px;
+  height: 29px;
+  left: 411px;
   top: 640px;
 
   font-family: "Inter";
