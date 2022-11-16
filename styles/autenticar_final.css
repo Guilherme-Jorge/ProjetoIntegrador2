@@ -86,6 +86,73 @@
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
 }
 
+  #successgerar {
+    /* Mensagem de geração */
+  
+    position: absolute;
+    width: 33.125vw;
+    height: 2.292vw;
+    left: 33.403vw;
+    top: 11.597vw;
+  
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.875vw;
+    line-height: 2.292vw;
+    /* identico ao box height */
+  
+    color: #000000;
+  }
+  
+  #codbilhete {
+    /* Código do bilhete */
+  
+    position: absolute;
+    height: 2.292vw;
+    left: 40.903vw;
+    top: 14.375vw;
+  
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.875vw;
+    line-height: 2.292vw;
+    /* identico ao box height */
+  
+    color: #000000;
+  }
+  
+  #cod{
+    /* Código gerado */
+  
+    position: absolute;
+  
+    left: 48.503vw;
+    top: 14.375vw;
+  
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.875vw;
+    line-height: 2.292vw;
+  
+    /* identico ao box height */
+  
+    color: #000000;
+  }
+  
+  #imgbilhete {
+    /* Bilhete criado */
+  
+    position: absolute;
+    width: 31.25vw;
+    height: 19.622vw;
+    left: 34.375vw;
+    top: 20.278vw;
+  
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
+  }
 
 #retlogo {
   /* Retângulo Logo */
