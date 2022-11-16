@@ -15,33 +15,101 @@
   height: 5.208vw;
   left: 0vw;
   top: 0vw;
-
   background: #2e3038;
 }
 
+#successgerar {
+  /* Mensagem de geração */
+
+  position: absolute;
+  width: 33.125vw;
+  height: 2.292vw;
+  left: 33.403vw;
+  top: 11.597vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+  /* identico ao box height */
+
+  color: #000000;
+}
+
+#codbilhete {
+  /* Código do bilhete */
+
+  position: absolute;
+  height: 2.292vw;
+  left: 40.903vw;
+  top: 14.375vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+  /* identico ao box height */
+
+  color: #000000;
+}
+
+#cod {
+  /* Código gerado */
+
+  position: absolute;
+
+  left: 48.503vw;
+  top: 14.375vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+
+  /* identico ao box height */
+
+  color: #000000;
+}
+
+#imgbilhete {
+  /* Bilhete criado */
+
+  position: absolute;
+  width: 31.25vw;
+  height: 19.622vw;
+  left: 34.375vw;
+  top: 20.278vw;
+
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
+}
+
+
 #retlogo {
   /* Retângulo Logo */
-
+  
   position: absolute;
   width: 22.76vw;
   height: 5.208vw;
   left: 4.583vw;
   top: 0vw;
-
+  
   background: #b1b4be;
 }
 
 #imglogo {
   /* Logo */
-
+  
   box-sizing: border-box;
-
+  
   position: absolute;
   width: 20.703vw;
   height: 2.604vw;
   left: 0.99vw;
   top: 1.302vw;
-
+  
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
 }
 
@@ -53,58 +121,96 @@
   height: 1.875vw;
   left: 32.76vw;
   top: 1.667vw;
-
+  
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 1.562vw;
   line-height: 1.875vw;
   text-decoration: none;
-
+  
   color: #ffffff;
 }
 
 #ptransporte {
   /* Pontos de transporte */
-
+  
   position: absolute;
   width: 16.181vw;
   height: 1.875vw;
   left: 50.938vw;
   top: 1.667vw;
-
+  
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 1.562vw;
   line-height: 1.875vw;
   text-decoration: none;
-
+  
   color: #ffffff;
 }
 
 .divvertical {
   /* Divisórias verticais */
-
+  
   position: absolute;
   width: 0.052vw;
   height: 3.177vw;
-
+  
   background: #d9d9d9;
 }
 
 #divcomousar {
   /* Divisória Como Usar */
-
+  
   left: 46.458vw;
   top: 1.042vw;
 }
 
 #divptransporte {
   /* Divisória 2 */
-
+  
   left: 71.667vw;
   top: 1.042vw;
+}
+
+#escrito_tempo1 {
+  /* Você tem 40:00 restante nesta recarga */
+
+  position: absolute;
+  width: 576px;
+  height: 29px;
+  left: 432px;
+  top: 640px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+
+  color: #000000;
+}
+
+#escrito_tempo2 {
+  /* Você tem 40:00 restante nesta recarga */
+
+  position: absolute;
+  width: 576px;
+  height: 29px;
+  left: 432px;
+  top: 640px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+
+  color: #000000;
 }
 
 footer {
@@ -115,43 +221,43 @@ footer {
   height: 19.236vw;
   left: 0vw;
   top: 51.875vw;
-
+  
   background: #2e3038;
 }
 
 #project {
   /* Projeto Integrador 2 */
-
+  
   position: absolute;
   width: 27.361vw;
   height: 1.875vw;
   left: 4.583vw;
   top: 4.653vw;
-
+  
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 1.562vw;
   line-height: 1.875vw;
-
+  
   color: #ffffff;
 }
 
 #members {
   /* Integrantes do grupo */
-
+  
   position: absolute;
   width: 28.542vw;
   height: 9.375vw;
   left: 66.736vw;
   top: 4.653vw;
-
+  
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 1.562vw;
   line-height: 1.875vw;
   text-align: right;
-
+  
   color: #ffffff;
 }
