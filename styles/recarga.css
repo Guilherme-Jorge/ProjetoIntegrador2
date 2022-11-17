@@ -1,0 +1,306 @@
+:root {
+  font-family: "Inter", sans-serif;
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
+#navmain {
+  /* Barra de Navegação */
+
+  position: absolute;
+  width: 100%;
+  height: 5.208vw;
+  left: 0vw;
+  top: 0vw;
+
+  background: #2e3038;
+}
+
+#retlogo {
+  /* Retângulo Logo */
+
+  position: absolute;
+  width: 22.76vw;
+  height: 5.208vw;
+  left: 4.583vw;
+  top: 0vw;
+
+  background: #b1b4be;
+}
+
+#imglogo {
+  /* Logo */
+
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 20.703vw;
+  height: 2.604vw;
+  left: 0.99vw;
+  top: 1.302vw;
+
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
+}
+
+#comousar {
+  /* Botão como usar */
+
+  position: absolute;
+  width: 8.333vw;
+  height: 1.875vw;
+  left: 32.76vw;
+  top: 1.667vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
+  text-decoration: none;
+
+  color: #ffffff;
+}
+
+#ptransporte {
+  /* Pontos de transporte */
+
+  position: absolute;
+  width: 16.181vw;
+  height: 1.875vw;
+  left: 50.938vw;
+  top: 1.667vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
+  text-decoration: none;
+
+  color: #ffffff;
+}
+
+.divvertical {
+  /* Divisórias verticais */
+
+  position: absolute;
+  width: 0.052vw;
+  height: 3.177vw;
+
+  background: #d9d9d9;
+}
+
+#divcomousar {
+  /* Divisória Como Usar */
+
+  left: 46.458vw;
+  top: 1.042vw;
+}
+
+#divptransporte {
+  /* Divisória 2 */
+
+  left: 71.667vw;
+  top: 1.042vw;
+}
+
+#estado-recarga {
+  /* Mensagem de estado da recarga */
+
+  position: absolute;
+  height: 2.76vw;
+  left: 33.958vw;
+  top: 12.917vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+
+  color: #000000;
+}
+
+#linha-recarga {
+  /* Linha abaixo da mensagem de estado*/
+  position: absolute;
+  width: 41.667vw;
+  height: 0vw;
+  left: 31.458vw;
+  top: 15.729vw;
+
+  border: 0.75px solid #000000;
+}
+
+#ret-recarga {
+  /* Retângulo das informações */
+
+  position: absolute;
+  width: 48.385vw;
+  height: 19.115vw;
+  left: 27.656vw;
+  top: 16.823vw;
+
+  background: #d9d9d9;
+  border-radius: 1.25vw;
+}
+
+#tipo {
+  /* Tipo de recarga */
+
+  position: absolute;
+  width: 14.844vw;
+  height: 2.76vw;
+  left: 4.531vw;
+  top: 2.656vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+
+  color: #000000;
+}
+
+#data {
+  /* Data */
+
+  position: absolute;
+  width: 4.427vw;
+  height: 2.188vw;
+  left: 4.531vw;
+  top: 7.917vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+
+  color: #000000;
+}
+
+#preco {
+  /* Preço */
+
+  position: absolute;
+  width: 5.312vw;
+  height: 2.76vw;
+  left: 4.531vw;
+  top: 12.865vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+
+  color: #000000;
+}
+
+#ret-tipo {
+  /* Retângulo do tipo da recarga*/
+
+  position: absolute;
+  width: 25.781vw;
+  height: 3.021vw;
+  left: 20.052vw;
+  top: 2.552vw;
+
+  background: #787e92;
+  border-radius: 1.875vw;
+}
+
+.ret-info {
+  /* Retângulo em comum com a data e preço */
+
+  position: absolute;
+  width: 35.208vw;
+  height: 2.986vw;
+  left: 10.816vw;
+
+  background: #787e92;
+  border-radius: 1.875vw;
+}
+
+#ret-data {
+  /* Retângulo da data*/
+
+  top: 7.691vw;
+}
+
+#ret-preco {
+  /* Retângulo do preço*/
+
+  top: 12.76vw;
+}
+
+.info {
+  /* Informações */
+
+  position: absolute;
+  height: 1.875vw;
+  left: 1.319vw;
+  top: 0.573vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
+
+  color: #ffffff;
+}
+
+footer {
+  /* Retângulo rodapé */
+
+  position: absolute;
+  width: 100%;
+  height: 19.236vw;
+  left: 0vw;
+  top: 51.875vw;
+
+  background: #2e3038;
+}
+
+#project {
+  /* Projeto Integrador 2 */
+
+  position: absolute;
+  width: 27.361vw;
+  height: 1.875vw;
+  left: 4.583vw;
+  top: 4.653vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
+
+  color: #ffffff;
+}
+
+#members {
+  /* Integrantes do grupo */
+
+  position: absolute;
+  width: 28.542vw;
+  height: 9.375vw;
+  left: 66.736vw;
+  top: 4.653vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
+  text-align: right;
+
+  color: #ffffff;
+}

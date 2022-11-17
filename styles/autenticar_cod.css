@@ -1,0 +1,229 @@
+:root {
+  font-family: "Inter", sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
+#navmain {
+  /* Barra de Navegação */
+
+  position: absolute;
+  width: 100%;
+  height: 5.208vw;
+  left: 0vw;
+  top: 0vw;
+
+  background: #2e3038;
+}
+
+#retlogo {
+  /* Retângulo Logo */
+
+  position: absolute;
+  width: 22.76vw;
+  height: 5.208vw;
+  left: 4.583vw;
+  top: 0vw;
+
+  background: #b1b4be;
+}
+
+#imglogo {
+  /* Logo */
+
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 20.703vw;
+  height: 2.604vw;
+  left: 0.99vw;
+  top: 1.302vw;
+
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
+}
+
+#comousar {
+  /* Botão como usar */
+
+  position: absolute;
+  width: 8.333vw;
+  height: 1.875vw;
+  left: 32.76vw;
+  top: 1.667vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
+  text-decoration: none;
+
+  color: #ffffff;
+}
+
+#ptransporte {
+  /* Pontos de transporte */
+
+  position: absolute;
+  width: 16.181vw;
+  height: 1.875vw;
+  left: 50.938vw;
+  top: 1.667vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
+  text-decoration: none;
+
+  color: #ffffff;
+}
+
+.divvertical {
+  /* Divisórias verticais */
+
+  position: absolute;
+  width: 0.052vw;
+  height: 3.177vw;
+
+  background: #d9d9d9;
+}
+
+#divcomousar {
+  /* Divisória Como Usar */
+
+  left: 46.458vw;
+  top: 1.042vw;
+}
+
+#divptransporte {
+  /* Divisória 2 */
+
+  left: 71.667vw;
+  top: 1.042vw;
+}
+
+#imglogocentral {
+  /* Imagem da logo no centro */
+
+  position: absolute;
+  width: 28.333vw;
+  left: 35.833vw;
+  top: 15.365vw;
+
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
+}
+
+#caixatexto {
+  /* Caixa de texto */
+
+  position: absolute;
+  width: 32.135vw;
+  height: 3.542vw;
+  left: 33.906vw;
+  top: 26.146vw;
+
+  background: #d9d9d9;
+  border-radius: 1.771vw;
+}
+
+.btnbuscar {
+  /* Botão para acionar a pesquisa */
+
+  position: absolute;
+  width: 4.271vw;
+  height: 3.542vw;
+  left: 27.934vw;
+
+  background: #000000;
+  border-radius: 1.771vw;
+}
+
+.input {
+  /* Barra de pesquisa*/
+
+  position: absolute;
+  width: 23.194vw;
+  height: 1.875vw;
+  left: 2.656vw;
+  top: 0.833vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
+  border: 0 none;
+  outline: 0;
+
+  background-color: #d9d9d9;
+}
+
+::placeholder {
+  /* Cor do texto do input*/
+  color: #b1b1b1;
+}
+
+#imglupa {
+  /* Lupa */
+
+  position: absolute;
+  width: 1.778vw;
+  height: 1.883vw;
+  left: 63.021vw;
+  top: 26.979vw;
+}
+
+footer {
+  /* Retângulo rodapé */
+
+  position: absolute;
+  width: 100%;
+  height: 19.236vw;
+  left: 0vw;
+  top: 51.875vw;
+
+  background: #2e3038;
+}
+
+#project {
+  /* Projeto Integrador 2 */
+
+  position: absolute;
+  width: 27.361vw;
+  height: 1.875vw;
+  left: 4.583vw;
+  top: 4.653vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
+
+  color: #ffffff;
+}
+
+#members {
+  /* Integrantes do grupo */
+
+  position: absolute;
+  width: 28.542vw;
+  height: 9.375vw;
+  left: 66.736vw;
+  top: 4.653vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
+  text-align: right;
+
+  color: #ffffff;
+}
