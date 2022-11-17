@@ -1,5 +1,5 @@
 function fazRecarga() {
-  const cod = document.getElementById("cod");
+  const cod = document.getElementById("cod").value;
 
   let url = `http://localhost:3333/api/bilhete/2/${cod}`;
 

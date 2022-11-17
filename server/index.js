@@ -35,12 +35,39 @@ function BD() {
     return global.conexao;
   };
 
-  this.estrutureSe = async function () {
+  this.estrutureBilheteSe = async function () {
     try {
       const conexao = await this.getConexao();
-      const sql =
+      const sql1 =
         "CREATE TABLE Bilhete (cod_bilhete integer CONSTRAINT pk_COD_BILHETE PRIMARY KEY, data_hora_geracao_bilhete timestamp)";
-      await conexao.execute(sql);
+      await conexao.execute(sql1);
+    } catch (err) {} // se a já existe, ignora e toca em frente
+  };
+
+  this.estrutureRecargaSe = async function () {
+    try {
+      const conexao = await this.getConexao();
+      const sql2 =
+        "CREATE TABLE Recarga (cod_recarga integer CONSTRAINT pk_COD_BILHETE PRIMARY KEY, data_hora_recarga timestamp, tipo_recarga varchar2(10), fk_BILHETE_cod integer, FOREIGN KEY (fk_BILHETE_cod) REFERENCES Bilhete (cod_bilhete))";
+      await conexao.execute(sql2);
+    } catch (err) {} // se a já existe, ignora e toca em frente
+  };
+
+  this.estrutureSequenceSe = async function () {
+    try {
+      const conexao = await this.getConexao();
+      const sql3 =
+        "CREATE SEQUENCE SEQUENCE_COD_RECARGA MINVALUE 1 MAXVALUE 9999999999 INCREMENT BY 1";
+      await conexao.execute(sql3);
+    } catch (err) {} // se a já existe, ignora e toca em frente
+  };
+
+  this.estrutureTriggerSe = async function () {
+    try {
+      const conexao = await this.getConexao();
+      const sql4 =
+        "CREATE TRIGGER TRIGGER_COD_RECARGA BEFORE INSERT ON RECARGA FOR EACH ROW BEGIN SELECT 'SEQUENCE_COD_RECARGA'.NEXTVAL INTO:NEW.COD_RECARGA FROM DUAL; END TRIGGER_COD_RECARGA";
+      await conexao.execute(sql4);
     } catch (err) {} // se a já existe, ignora e toca em frente
   };
 }
@@ -51,13 +78,7 @@ function Bilhete(bd) {
   this.insert = async function () {
     const conexao = await this.bd.getConexao();
 
-    const temp_codigo = generateCodigo();
-
-    const checkCodigo = await conexao.execute(
-      "SELECT * FROM Bilhete WHERE cod_bilhete = :0",
-      [temp_codigo]
-    );
-    console.log(checkCodigo);
+    let temp_codigo = generateCodigo();
 
     try {
       const sql1 =
@@ -70,27 +91,31 @@ function Bilhete(bd) {
 
       return temp_codigo;
     } catch (err) {
-      this.insert();
+      console.log(err);
+
+      return temp_codigo = this.insert();
     }
   };
 
-  this.recharge = async function (code, type) {
+  this.recharge = async function (req, res) {
     const conexao = await this.bd.getConexao();
+    const code = parseInt(req.params.id);
+    let type = req.params.recharge;
 
-    if (type == 0) {
-      type = ["Único"];
+    if (type == "0") {
+      type = "Único";
     }
 
-    if (type == 1) {
-      type = ["Duplo"];
+    if (type == "1") {
+      type = "Duplo";
     }
 
-    if (type == 2) {
-      type = ["7 Dias"];
+    if (type == "2") {
+      type = "7 Dias";
     }
 
-    if (type == 3) {
-      type = ["30 Dias"];
+    if (type == "3") {
+      type = "30 Dias";
     }
 
     const checkCodigo = await conexao.execute(
@@ -102,10 +127,18 @@ function Bilhete(bd) {
     if (checkCodigo.rows != []) {
       try {
         const sql1 =
-          "INSERT INTO Recarga (data_hora_recarga, tipo_recarga) VALUES (SYSTIMESTAMP(0), :0)";
-        await conexao.execute(sql1, type);
+          "INSERT INTO Recarga (cod_recarga, data_hora_recarga, tipo_recarga, fk_BILHETE_cod) VALUES (0, SYSTIMESTAMP(0), :0, :1)";
+        const instruction = [type, code];
+        await conexao.execute(sql1, instruction);
+
+        const sql2 = "COMMIT";
+        await conexao.execute(sql2);
+
+        return res.status(200).json();
       } catch (err) {
         console.log(err);
+
+        return res.status(404).json();
       }
     }
   };
@@ -126,7 +159,10 @@ async function ativacaoDoServidor() {
   oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
 
   const bd = new BD();
-  await bd.estrutureSe();
+  await bd.estrutureBilheteSe();
+  await bd.estrutureRecargaSe();
+  await bd.estrutureSequenceSe();
+  await bd.estrutureTriggerSe();
   global.Bilhete = new Bilhete(bd);
 
   const app = express();
@@ -145,9 +181,9 @@ async function ativacaoDoServidor() {
 
   app.post(
     "/api/bilhete/:recharge/:id",
-    { recharge: type, id: code },
+    // { recharge: type, id: code },
     async (req, res) => {
-      await global.Bilhete.recharge(code, type);
+      await global.Bilhete.recharge(req, res);
     }
   );
 
