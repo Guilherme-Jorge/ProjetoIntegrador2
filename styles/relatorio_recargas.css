@@ -205,57 +205,9 @@
 
   }
 
-  #tipo{
-
-    /* Tipo */
-
-
-    position: absolute;
-    width: 75.75px;
-    height: 30px;
-    left: 165px;
-    top: 303px;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 36px;
-
-    color: #2E3038;
-  }
-
-  #data_table{
-
-    /* Data */
-
-
-    position: absolute;
-    width: 71.25px;
-    height: 30px;
-    left: 403.5px;
-    top: 303px;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 36px;
-
-    color: #2E3038;
-  }
-
-  #utilizar{
-
-    /* Utilização */
-
-
-    position: absolute;
-    width: 151.5px;
-    height: 30px;
-    left: 660.75px;
-    top: 303px;
-
+  table, th, td {
+    position:relative;
+    
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -264,28 +216,15 @@
 
     color: #2E3038;
 
+    border: 1px solid white;
+    width: 1304px;
+    height: 20px;
+    left: 66px;
+    top: 110px;
   }
-
-  #hora{
-
-    /* Hora da Utilização */
-
-
-    position: absolute;
-    width: 270px;
-    height: 30px;
-    left: 1020px;
-    top: 303.75px;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 36px;
-
-    color: #2E3038;
+  tr:nth-child(even) {
+    background-color: #a3a3a3;
   }
-
 
   footer {
     /* Retângulo rodapé */
