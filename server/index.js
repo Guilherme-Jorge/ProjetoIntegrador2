@@ -76,7 +76,7 @@ function BD() {
     try {
       const conexao = await this.getConexao();
       const sql5 =
-        "CREATE TABLE Utilizacao (cod_utilizacao integer CONSTRAINT pk_COD_UTILIZACAO PRIMARY KEY, data_hora_utilizacao timestamp, fk_RECARGA_cod integer, FOREIGN KEY (fk_RECARGA_cod) REFERENCES Recarga (cod_recarga))";
+        "CREATE TABLE Utilizacao (cod_utilizacao integer CONSTRAINT pk_COD_UTILIZACAO PRIMARY KEY, data_hora_inicial_utilizacao timestamp, data_hora_utilizacao timestamp, fk_RECARGA_cod integer, FOREIGN KEY (fk_RECARGA_cod) REFERENCES Recarga (cod_recarga))";
       await conexao.execute(sql5);
     } catch (err) {} // se a já existe, ignora e toca em frente
   };
@@ -185,10 +185,9 @@ function Bilhete(bd) {
     return res.status(403).json();
   };
 
-  this.utilize = async function (req, res) {
+  this.utilize = async function (req, res, cont) {
     const conexao = await this.bd.getConexao();
     const code = parseInt(req.params.id);
-    let cont = 0;
 
     let checkCodigo = await conexao.execute(
       "SELECT * FROM Bilhete WHERE cod_bilhete = :0",
@@ -207,7 +206,7 @@ function Bilhete(bd) {
       if (checkCodigo.rows[cont].CHECK_RECARGA == 0) {
         try {
           const sql1 =
-            "INSERT INTO Utilizacao (data_hora_utilizacao, fk_RECARGA_cod) VALUES (SYSTIMESTAMP(0), :0)";
+            "INSERT INTO Utilizacao (data_hora_inicial_utilizacao, data_hora_utilizacao, fk_RECARGA_cod) VALUES (SYSTIMESTAMP(0), SYSTIMESTAMP(0), :0)";
           const instruction = [checkCodigo.rows[cont].COD_RECARGA];
           await conexao.execute(sql1, instruction);
 
@@ -222,10 +221,53 @@ function Bilhete(bd) {
           await conexao.execute(sql4);
 
           const sql5 =
-            'SELECT EXTRACT(DAY FROM "difference") *86400 + EXTRACT(HOUR FROM "difference") *3600 + EXTRACT(MINUTE FROM "difference") *60 + EXTRACT(SECOND FROM "difference") as "Tempo" FROM (SELECT SYSTIMESTAMP(0) - UTILIZACAO.DATA_HORA_UTILIZACAO  AS "difference" FROM Utilizacao WHERE fk_RECARGA_cod IN (:0) ORDER BY data_hora_utilizacao DESC)';
+            'SELECT EXTRACT(DAY FROM "difference") *86400 + EXTRACT(HOUR FROM "difference") *3600 + EXTRACT(MINUTE FROM "difference") *60 + ROUND(EXTRACT(SECOND FROM "difference")) as "Tempo" FROM (SELECT SYSTIMESTAMP(0) - UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO  AS "difference" FROM Utilizacao WHERE fk_RECARGA_cod IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC)';
           const select = await conexao.execute(sql5, instruction);
 
           console.log(select);
+
+          return res.status(200).json(select.rows[cont]);
+        } catch (err) {
+          console.log(err);
+
+          return res.status(403).json();
+        }
+      }
+
+      const instruction = [checkCodigo.rows[cont].COD_RECARGA];
+
+      if (checkCodigo.rows[cont].QTD_RECARGA == 2) {
+        try {
+          const sql0 =
+            'SELECT EXTRACT(DAY FROM "difference") *86400 + EXTRACT(HOUR FROM "difference") *3600 + EXTRACT(MINUTE FROM "difference") *60 + ROUND(EXTRACT(SECOND FROM "difference")) as "Tempo" FROM (SELECT SYSTIMESTAMP(0) - UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO  AS "difference" FROM Utilizacao WHERE fk_RECARGA_cod IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC)';
+          const select = await conexao.execute(sql0, instruction);
+
+          console.log(select);
+
+          if (select.rows[0].Tempo > 2400) {
+            const sql3 =
+              "UPDATE Recarga SET qtd_recarga = 1 WHERE cod_recarga = :1";
+            await conexao.execute(sql3, instruction);
+
+            const sql4 = "COMMIT";
+            await conexao.execute(sql4);
+
+            const sql5 =
+              "UPDATE Recarga SET check_recarga = 0 WHERE cod_recarga = :1";
+            await conexao.execute(sql5, instruction);
+
+            const sql6 = "COMMIT";
+            await conexao.execute(sql6);
+            
+            return this.utilize(req, res, cont);
+          }
+
+          const sql1 =
+            "INSERT INTO Utilizacao (data_hora_utilizacao, fk_RECARGA_cod) VALUES (SYSTIMESTAMP(0), :0)";
+          await conexao.execute(sql1, instruction);
+
+          const sql2 = "COMMIT";
+          await conexao.execute(sql2);
 
           return res.status(200).json(select.rows[0]);
         } catch (err) {
@@ -235,11 +277,116 @@ function Bilhete(bd) {
         }
       }
 
-      // if (checkCodigo.rows[cont].check_recarga == 1) {
-      //   if (checkCodigo[0].qtd_recarga != 0) {
-      //   }
-      // }
+      if (checkCodigo.rows[cont].QTD_RECARGA == 1) {
+        if (checkCodigo.rows[cont].TIPO_RECARGA == "7 Dias") {
+          try {
+            const sql0 =
+              'SELECT EXTRACT(DAY FROM "difference") *86400 + EXTRACT(HOUR FROM "difference") *3600 + EXTRACT(MINUTE FROM "difference") *60 + ROUND(EXTRACT(SECOND FROM "difference")) as "Tempo" FROM (SELECT SYSTIMESTAMP(0) - UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO AS "difference" FROM Utilizacao WHERE fk_RECARGA_cod IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC)';
+            const select = await conexao.execute(sql0, instruction);
+
+            console.log(select);
+
+            if (select.rows[0].Tempo > 604800) {
+              const sql3 =
+                "UPDATE Recarga SET qtd_recarga = 0 WHERE cod_recarga = :1";
+              await conexao.execute(sql3, instruction);
+
+              const sql4 = "COMMIT";
+              await conexao.execute(sql4);
+
+              return this.utilize(req, res, cont + 1);
+            }
+
+            const sql1 =
+              "INSERT INTO Utilizacao (data_hora_utilizacao, fk_RECARGA_cod) VALUES (SYSTIMESTAMP(0), :0)";
+            await conexao.execute(sql1, instruction);
+
+            const sql2 = "COMMIT";
+            await conexao.execute(sql2);
+
+            return res.status(200).json(select.rows[0]);
+          } catch (err) {
+            console.log(err);
+
+            return res.status(403).json();
+          }
+        }
+
+        if (checkCodigo.rows[cont].TIPO_RECARGA == "30 Dias") {
+          try {
+            const sql0 =
+              'SELECT EXTRACT(DAY FROM "difference") *86400 + EXTRACT(HOUR FROM "difference") *3600 + EXTRACT(MINUTE FROM "difference") *60 + ROUND(EXTRACT(SECOND FROM "difference")) as "Tempo" FROM (SELECT SYSTIMESTAMP(0) - UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO  AS "difference" FROM Utilizacao WHERE fk_RECARGA_cod IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC)';
+            const select = await conexao.execute(sql0, instruction);
+
+            console.log(select);
+
+            if (select.rows[0].Tempo > 2592000) {
+              const sql3 =
+                "UPDATE Recarga SET qtd_recarga = 0 WHERE cod_recarga = :1";
+              await conexao.execute(sql3, instruction);
+
+              const sql4 = "COMMIT";
+              await conexao.execute(sql4);
+
+              return this.utilize(req, res, cont + 1);
+            }
+
+            const sql1 =
+              "INSERT INTO Utilizacao (data_hora_utilizacao, fk_RECARGA_cod) VALUES (SYSTIMESTAMP(0), :0)";
+            await conexao.execute(sql1, instruction);
+
+            const sql2 = "COMMIT";
+            await conexao.execute(sql2);
+
+            return res.status(200).json(select.rows[0]);
+          } catch (err) {
+            console.log(err);
+
+            return res.status(403).json();
+          }
+        }
+
+        try {
+          const sql0 =
+            'SELECT EXTRACT(DAY FROM "difference") *86400 + EXTRACT(HOUR FROM "difference") *3600 + EXTRACT(MINUTE FROM "difference") *60 + ROUND(EXTRACT(SECOND FROM "difference")) as "Tempo" FROM (SELECT SYSTIMESTAMP(0) - UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO  AS "difference" FROM Utilizacao WHERE fk_RECARGA_cod IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC)';
+          const select = await conexao.execute(sql0, instruction);
+
+          console.log(select);
+
+          if (select.rows[0].Tempo > 2400) {
+            const sql3 =
+              "UPDATE Recarga SET qtd_recarga = 0 WHERE cod_recarga = :1";
+            await conexao.execute(sql3, instruction);
+
+            const sql4 = "COMMIT";
+            await conexao.execute(sql4);
+
+            return this.utilize(req, res, cont + 1);
+          }
+
+          const sql1 =
+            "INSERT INTO Utilizacao (data_hora_utilizacao, fk_RECARGA_cod) VALUES (SYSTIMESTAMP(0), :0)";
+          await conexao.execute(sql1, instruction);
+
+          const sql2 = "COMMIT";
+          await conexao.execute(sql2);
+
+          return res.status(200).json(select.rows[0]);
+        } catch (err) {
+          console.log(err);
+
+          return res.status(403).json();
+        }
+      }
+
+      if (checkCodigo.rows[cont].QTD_RECARGA == 0) {
+        return this.utilize(req, res, cont + 1);
+      }
     }
+
+    console.log("Acabou a recarga");
+
+    return res.status(403).json();
   };
 
   this.report = async function (req, res) {
@@ -289,7 +436,9 @@ async function ativacaoDoServidor() {
   });
 
   app.post("/api/bilhete/:id", async (req, res) => {
-    await global.Bilhete.utilize(req, res);
+    let cont = 0;
+
+    await global.Bilhete.utilize(req, res, cont);
   });
 
   app.get("/api/bilhete/:id", async (req, res) => {
