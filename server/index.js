@@ -1,11 +1,12 @@
-// http://localhost:3333/api/
 /**
+ * http://localhost:3333/api/
+ *
  * connectionString: "172.16.12.48:1521/xe"
  * connectionString: "ceatudb02:1521/xe"
- *
  */
 
 const oracledb = require("oracledb");
+oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
 const express = require("express");
 const cors = require("cors");
 
@@ -24,7 +25,7 @@ function BD() {
       global.conexao = await oracledb.getConnection({
         user: "EBD1ES82226",
         password: "Omhsw7",
-        connectionString: "ceatudb02:1521/xe",
+        connectionString: "172.16.12.48:1521/xe",
       });
     } catch (err) {
       console.log("Não foi possível estabelecer conexão com o BD!");
@@ -35,7 +36,7 @@ function BD() {
     return global.conexao;
   };
 
-  this.estrutureBilheteSe = async function () {
+  this.estrutureSeBilhete = async function () {
     try {
       const conexao = await this.getConexao();
       const sql1 =
@@ -44,16 +45,16 @@ function BD() {
     } catch (err) {} // se a já existe, ignora e toca em frente
   };
 
-  this.estrutureRecargaSe = async function () {
+  this.estrutureSeRecarga = async function () {
     try {
       const conexao = await this.getConexao();
       const sql2 =
-        "CREATE TABLE Recarga (cod_recarga integer CONSTRAINT pk_COD_BILHETE PRIMARY KEY, data_hora_recarga timestamp, tipo_recarga varchar2(10), fk_BILHETE_cod integer, FOREIGN KEY (fk_BILHETE_cod) REFERENCES Bilhete (cod_bilhete))";
+        "CREATE TABLE Recarga (cod_recarga integer CONSTRAINT pk_COD_RECARGA PRIMARY KEY, data_hora_recarga timestamp, tipo_recarga varchar2(10), check_recarga number(1), qtd_recarga number(1), fk_BILHETE_cod integer, FOREIGN KEY (fk_BILHETE_cod) REFERENCES Bilhete (cod_bilhete))";
       await conexao.execute(sql2);
     } catch (err) {} // se a já existe, ignora e toca em frente
   };
 
-  this.estrutureSequenceSe = async function () {
+  this.estrutureSeSequenceRecarga = async function () {
     try {
       const conexao = await this.getConexao();
       const sql3 =
@@ -62,13 +63,50 @@ function BD() {
     } catch (err) {} // se a já existe, ignora e toca em frente
   };
 
-  this.estrutureTriggerSe = async function () {
+  this.estrutureSeTriggerRecarga = async function () {
     try {
       const conexao = await this.getConexao();
       const sql4 =
         "CREATE TRIGGER TRIGGER_COD_RECARGA BEFORE INSERT ON RECARGA FOR EACH ROW BEGIN SELECT 'SEQUENCE_COD_RECARGA'.NEXTVAL INTO:NEW.COD_RECARGA FROM DUAL; END TRIGGER_COD_RECARGA";
       await conexao.execute(sql4);
     } catch (err) {} // se a já existe, ignora e toca em frente
+  };
+
+  this.estrutureSeUtilizacao = async function () {
+    try {
+      const conexao = await this.getConexao();
+      const sql5 =
+        "CREATE TABLE Utilizacao (cod_utilizacao integer CONSTRAINT pk_COD_UTILIZACAO PRIMARY KEY, data_hora_utilizacao timestamp, fk_RECARGA_cod integer, FOREIGN KEY (fk_RECARGA_cod) REFERENCES Recarga (cod_recarga))";
+      await conexao.execute(sql5);
+    } catch (err) {} // se a já existe, ignora e toca em frente
+  };
+
+  this.estrutureSeSequenceUtilizacao = async function () {
+    try {
+      const conexao = await this.getConexao();
+      const sql6 =
+        "CREATE SEQUENCE SEQUENCE_COD_UTILIZACAO MINVALUE 1 MAXVALUE 9999999999 INCREMENT BY 1";
+      await conexao.execute(sql6);
+    } catch (err) {} // se a já existe, ignora e toca em frente
+  };
+
+  this.estrutureSeTriggerUtilizacao = async function () {
+    try {
+      const conexao = await this.getConexao();
+      const sql7 =
+        "CREATE TRIGGER TRIGGER_COD_UTILIZACAO BEFORE INSERT ON UTILIZACAO FOR EACH ROW BEGIN SELECT 'SEQUENCE_COD_UTILIZACAO'.NEXTVAL INTO:NEW.COD_UTILIZACAO FROM DUAL; END TRIGGER_COD_UTILIZACAO";
+      await conexao.execute(sql7);
+    } catch (err) {} // se a já existe, ignora e toca em frente
+  };
+
+  this.estrutureSe = async function () {
+    await this.estrutureSeBilhete();
+    await this.estrutureSeRecarga();
+    await this.estrutureSeSequenceRecarga();
+    await this.estrutureSeTriggerRecarga();
+    await this.estrutureSeUtilizacao();
+    await this.estrutureSeSequenceUtilizacao();
+    await this.estrutureSeTriggerUtilizacao();
   };
 }
 
@@ -93,7 +131,7 @@ function Bilhete(bd) {
     } catch (err) {
       console.log(err);
 
-      return temp_codigo = this.insert();
+      return (temp_codigo = this.insert());
     }
   };
 
@@ -101,6 +139,7 @@ function Bilhete(bd) {
     const conexao = await this.bd.getConexao();
     const code = parseInt(req.params.id);
     let type = req.params.recharge;
+    let qtd = 1;
 
     if (type == "0") {
       type = "Único";
@@ -108,6 +147,7 @@ function Bilhete(bd) {
 
     if (type == "1") {
       type = "Duplo";
+      qtd = 2;
     }
 
     if (type == "2") {
@@ -122,13 +162,13 @@ function Bilhete(bd) {
       "SELECT * FROM Bilhete WHERE cod_bilhete = :0",
       [code]
     );
-    console.log(checkCodigo);
+    console.log(checkCodigo.rows);
 
-    if (checkCodigo.rows != []) {
+    if (checkCodigo.rows.length != 0) {
       try {
         const sql1 =
-          "INSERT INTO Recarga (cod_recarga, data_hora_recarga, tipo_recarga, fk_BILHETE_cod) VALUES (0, SYSTIMESTAMP(0), :0, :1)";
-        const instruction = [type, code];
+          "INSERT INTO Recarga (data_hora_recarga, tipo_recarga, check_recarga, qtd_recarga, fk_BILHETE_cod) VALUES (SYSTIMESTAMP(0), :0, 0, :1, :2)";
+        const instruction = [type, qtd, code];
         await conexao.execute(sql1, instruction);
 
         const sql2 = "COMMIT";
@@ -138,9 +178,79 @@ function Bilhete(bd) {
       } catch (err) {
         console.log(err);
 
-        return res.status(404).json();
+        return res.status(403).json();
       }
     }
+
+    return res.status(403).json();
+  };
+
+  this.utilize = async function (req, res) {
+    const conexao = await this.bd.getConexao();
+    const code = parseInt(req.params.id);
+    let cont = 0;
+
+    let checkCodigo = await conexao.execute(
+      "SELECT * FROM Bilhete WHERE cod_bilhete = :0",
+      [code]
+    );
+    console.log(checkCodigo.rows);
+
+    if (checkCodigo.rows.length != 0) {
+      checkCodigo = await conexao.execute(
+        "SELECT * FROM Recarga WHERE fk_BILHETE_cod = :0",
+        [code]
+      );
+      console.log(checkCodigo.rows);
+      console.log(checkCodigo.rows[cont].CHECK_RECARGA);
+
+      if (checkCodigo.rows[cont].CHECK_RECARGA == 0) {
+        try {
+          const sql1 =
+            "INSERT INTO Utilizacao (data_hora_utilizacao, fk_RECARGA_cod) VALUES (SYSTIMESTAMP(0), :0)";
+          const instruction = [checkCodigo.rows[cont].COD_RECARGA];
+          await conexao.execute(sql1, instruction);
+
+          const sql2 = "COMMIT";
+          await conexao.execute(sql2);
+
+          const sql3 =
+            "UPDATE Recarga SET check_recarga = 1 WHERE cod_recarga = :0";
+          await conexao.execute(sql3, instruction);
+
+          const sql4 = "COMMIT";
+          await conexao.execute(sql4);
+
+          const sql5 =
+            'SELECT EXTRACT(DAY FROM "difference") *86400 + EXTRACT(HOUR FROM "difference") *3600 + EXTRACT(MINUTE FROM "difference") *60 + EXTRACT(SECOND FROM "difference") as "Tempo" FROM (SELECT SYSTIMESTAMP(0) - UTILIZACAO.DATA_HORA_UTILIZACAO  AS "difference" FROM Utilizacao WHERE fk_RECARGA_cod IN (:0) ORDER BY data_hora_utilizacao DESC)';
+          const select = await conexao.execute(sql5, instruction);
+
+          console.log(select);
+
+          return res.status(200).json(select.rows[0]);
+        } catch (err) {
+          console.log(err);
+
+          return res.status(403).json();
+        }
+      }
+
+      // if (checkCodigo.rows[cont].check_recarga == 1) {
+      //   if (checkCodigo[0].qtd_recarga != 0) {
+      //   }
+      // }
+    }
+  };
+
+  this.report = async function (req, res) {
+    const conexao = await this.bd.getConexao();
+    const code = parseInt(req.params.id);
+
+    const checkCodigo = await conexao.execute(
+      "SELECT * FROM Bilhete WHERE cod_bilhete = :0",
+      [code]
+    );
+    console.log(checkCodigo);
   };
 }
 
@@ -156,13 +266,8 @@ function middleWareGlobal(req, res, next) {
 }
 
 async function ativacaoDoServidor() {
-  oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
-
   const bd = new BD();
-  await bd.estrutureBilheteSe();
-  await bd.estrutureRecargaSe();
-  await bd.estrutureSequenceSe();
-  await bd.estrutureTriggerSe();
+  await bd.estrutureSe();
   global.Bilhete = new Bilhete(bd);
 
   const app = express();
@@ -174,18 +279,22 @@ async function ativacaoDoServidor() {
   app.get("/api/bilhete", async (req, res) => {
     const codigo = await global.Bilhete.insert();
 
-    return res.json({
+    return res.status(200).json({
       id: codigo,
     });
   });
 
-  app.post(
-    "/api/bilhete/:recharge/:id",
-    // { recharge: type, id: code },
-    async (req, res) => {
-      await global.Bilhete.recharge(req, res);
-    }
-  );
+  app.post("/api/bilhete/:recharge/:id", async (req, res) => {
+    await global.Bilhete.recharge(req, res);
+  });
+
+  app.post("/api/bilhete/:id", async (req, res) => {
+    await global.Bilhete.utilize(req, res);
+  });
+
+  app.get("/api/bilhete/:id", async (req, res) => {
+    await global.Bilhete.report(req, res);
+  });
 
   console.log("Servidor ativo na porta 3333...");
   app.listen(3333);
