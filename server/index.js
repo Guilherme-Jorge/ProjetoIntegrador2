@@ -195,6 +195,12 @@ function Bilhete(bd) {
     );
     console.log(checkCodigo.rows);
 
+    if (checkCodigo.rows.length == cont) {
+      console.log("Acabou a recarga");
+
+      return res.status(403).json();
+    }
+
     if (checkCodigo.rows.length != 0) {
       checkCodigo = await conexao.execute(
         "SELECT * FROM Recarga WHERE fk_BILHETE_cod = :0",
@@ -258,7 +264,7 @@ function Bilhete(bd) {
 
             const sql6 = "COMMIT";
             await conexao.execute(sql6);
-            
+
             return this.utilize(req, res, cont);
           }
 
