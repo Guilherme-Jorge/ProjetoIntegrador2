@@ -85,16 +85,16 @@
   /* Relatório de recargas */
 
   position: absolute;
-  width: 281px;
-  height: 33px;
-  left: 579px;
-  top: 123px;
+  width: 19.514vw;
+  height: 2.292vw;
+  left: 40.208vw;
+  top: 8.542vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 27px;
-  line-height: 33px;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
 
   color: #000000;
 }
@@ -103,10 +103,10 @@
   /* Line 7 */
 
   position: absolute;
-  width: 600px;
-  height: 0px;
-  left: 420px;
-  top: 169px;
+  width: 41.667vw;
+  height: 0vw;
+  left: 29.167vw;
+  top: 11.736vw;
 
   border: 0.75px solid #000000;
 }
@@ -115,87 +115,87 @@
   /* Bilhete único */
 
   position: absolute;
-  width: 197.25px;
-  height: 30px;
-  left: 104.25px;
-  top: 215.25px;
+  width: 13.698vw;
+  height: 2.083vw;
+  left: 5.74vw;
+  top: 14.552vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 2.083vw;
+  line-height: 2.5vw;
 
   color: #2e3038;
 }
 
 #codigo {
-  /* Código: ##### */
+  /* Código:  ##### */
 
   position: absolute;
-  height: 30px;
-  left: 387.75px;
-  top: 216.75px;
+  height: 2.083vw;
+  left: 21.927vw;
+  top: 14.552vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 2.083vw;
+  line-height: 2.5vw;
 
   color: #2e3038;
 }
 
 #codigo_cod {
-  /* Código: ##### */
+  /* Código:  ##### */
 
   position: absolute;
-  width: 220.5px;
-  height: 30px;
-  left: 510px;
-  top: 216.75px;
+  width: 15.313vw;
+  height: 2.083vw;
+  left: 30.417vw;
+  top: 14.552vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 2.083vw;
+  line-height: 2.5vw;
 
   color: #2e3038;
 }
 
 #data {
-  /* Data da geração do bilhete: ##/##/## */
+  /* Data da geração do bilhete:  ##/##/## */
 
   position: absolute;
-  width: 570.75px;
-  height: 30px;
-  left: 747px;
-  top: 217.5px;
+  width: 39.635vw;
+  height: 2.083vw;
+  left: 46.875vw;
+  top: 14.552vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 2.083vw;
+  line-height: 2.5vw;
 
   color: #2e3038;
 }
 
 #data_cod {
-  /* Data da geração do bilhete: ##/##/## */
+  /* Data da geração do bilhete:  ##/##/## */
 
   position: absolute;
-  width: 570.75px;
-  height: 30px;
-  left: 1160px;
-  top: 217.5px;
+  width: 39.635vw;
+  height: 2.083vw;
+  left: 75.306vw;
+  top: 14.552vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 2.083vw;
+  line-height: 2.5vw;
 
   color: #2e3038;
 }
@@ -206,15 +206,15 @@ table {
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 2.083vw;
+  line-height: 2.5vw;
 
   color: #2e3038;
 
   border: 1px solid white;
-  width: 1303.5px;
-  left: 66px;
-  top: 230px;
+  width: 90.521vw;
+  left: 4.583vw;
+  top: 16.972vw;
 }
 
 thead {
@@ -234,7 +234,7 @@ footer {
   height: 19.236vw;
   left: 0vw;
   bottom: auto;
-  margin-top: 500px;
+  margin-top: 700px;
 
   background: #2e3038;
 }
