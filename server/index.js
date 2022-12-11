@@ -223,11 +223,11 @@ function Bilhete(bd) {
           const sql4 = "COMMIT";
           await conexao.execute(sql4);
 
-          const sql5 =
-            'SELECT EXTRACT(DAY FROM "difference") *86400 + EXTRACT(HOUR FROM "difference") *3600 + EXTRACT(MINUTE FROM "difference") *60 + ROUND(EXTRACT(SECOND FROM "difference")) as "Tempo" FROM (SELECT SYSTIMESTAMP(0) - UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO  AS "difference" FROM Utilizacao WHERE fk_RECARGA_cod IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC)';
-          const select = await conexao.execute(sql5, instruction);
+          const sql10 = `SELECT UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO + INTERVAL '40' MINUTE AS "Tempo" FROM UTILIZACAO WHERE FK_RECARGA_COD IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC`;
 
-          return res.status(200).json(select.rows[cont]);
+          const select1 = await conexao.execute(sql10, instruction);
+
+          return res.status(200).json(select1.rows[cont]);
         } catch (err) {
           console.log(err);
 
