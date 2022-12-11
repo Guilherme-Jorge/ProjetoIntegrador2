@@ -194,6 +194,12 @@ function Bilhete(bd) {
       [code]
     );
 
+    if (checkCodigo.rows.length == cont) {
+      console.log("Acabou a recarga");
+
+      return res.status(403).json();
+    }
+
     if (checkCodigo.rows.length != 0) {
       checkCodigo = await conexao.execute(
         "SELECT * FROM Recarga WHERE fk_BILHETE_cod = :0",
