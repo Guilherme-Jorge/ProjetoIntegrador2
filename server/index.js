@@ -193,15 +193,12 @@ function Bilhete(bd) {
       "SELECT * FROM Bilhete WHERE cod_bilhete = :0",
       [code]
     );
-    console.log(checkCodigo.rows);
 
     if (checkCodigo.rows.length != 0) {
       checkCodigo = await conexao.execute(
         "SELECT * FROM Recarga WHERE fk_BILHETE_cod = :0",
         [code]
       );
-      console.log(checkCodigo.rows);
-      console.log(checkCodigo.rows[cont].CHECK_RECARGA);
 
       if (checkCodigo.rows[cont].CHECK_RECARGA == 0) {
         try {
@@ -224,8 +221,6 @@ function Bilhete(bd) {
             'SELECT EXTRACT(DAY FROM "difference") *86400 + EXTRACT(HOUR FROM "difference") *3600 + EXTRACT(MINUTE FROM "difference") *60 + ROUND(EXTRACT(SECOND FROM "difference")) as "Tempo" FROM (SELECT SYSTIMESTAMP(0) - UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO  AS "difference" FROM Utilizacao WHERE fk_RECARGA_cod IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC)';
           const select = await conexao.execute(sql5, instruction);
 
-          console.log(select);
-
           return res.status(200).json(select.rows[cont]);
         } catch (err) {
           console.log(err);
@@ -242,8 +237,6 @@ function Bilhete(bd) {
             'SELECT EXTRACT(DAY FROM "difference") *86400 + EXTRACT(HOUR FROM "difference") *3600 + EXTRACT(MINUTE FROM "difference") *60 + ROUND(EXTRACT(SECOND FROM "difference")) as "Tempo" FROM (SELECT SYSTIMESTAMP(0) - UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO  AS "difference" FROM Utilizacao WHERE fk_RECARGA_cod IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC)';
           const select = await conexao.execute(sql0, instruction);
 
-          console.log(select);
-
           if (select.rows[0].Tempo > 2400) {
             const sql3 =
               "UPDATE Recarga SET qtd_recarga = 1 WHERE cod_recarga = :1";
@@ -258,7 +251,7 @@ function Bilhete(bd) {
 
             const sql6 = "COMMIT";
             await conexao.execute(sql6);
-            
+
             return this.utilize(req, res, cont);
           }
 
@@ -283,8 +276,6 @@ function Bilhete(bd) {
             const sql0 =
               'SELECT EXTRACT(DAY FROM "difference") *86400 + EXTRACT(HOUR FROM "difference") *3600 + EXTRACT(MINUTE FROM "difference") *60 + ROUND(EXTRACT(SECOND FROM "difference")) as "Tempo" FROM (SELECT SYSTIMESTAMP(0) - UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO AS "difference" FROM Utilizacao WHERE fk_RECARGA_cod IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC)';
             const select = await conexao.execute(sql0, instruction);
-
-            console.log(select);
 
             if (select.rows[0].Tempo > 604800) {
               const sql3 =
@@ -318,8 +309,6 @@ function Bilhete(bd) {
               'SELECT EXTRACT(DAY FROM "difference") *86400 + EXTRACT(HOUR FROM "difference") *3600 + EXTRACT(MINUTE FROM "difference") *60 + ROUND(EXTRACT(SECOND FROM "difference")) as "Tempo" FROM (SELECT SYSTIMESTAMP(0) - UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO  AS "difference" FROM Utilizacao WHERE fk_RECARGA_cod IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC)';
             const select = await conexao.execute(sql0, instruction);
 
-            console.log(select);
-
             if (select.rows[0].Tempo > 2592000) {
               const sql3 =
                 "UPDATE Recarga SET qtd_recarga = 0 WHERE cod_recarga = :1";
@@ -350,8 +339,6 @@ function Bilhete(bd) {
           const sql0 =
             'SELECT EXTRACT(DAY FROM "difference") *86400 + EXTRACT(HOUR FROM "difference") *3600 + EXTRACT(MINUTE FROM "difference") *60 + ROUND(EXTRACT(SECOND FROM "difference")) as "Tempo" FROM (SELECT SYSTIMESTAMP(0) - UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO  AS "difference" FROM Utilizacao WHERE fk_RECARGA_cod IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC)';
           const select = await conexao.execute(sql0, instruction);
-
-          console.log(select);
 
           if (select.rows[0].Tempo > 2400) {
             const sql3 =
@@ -384,8 +371,6 @@ function Bilhete(bd) {
       }
     }
 
-    console.log("Acabou a recarga");
-
     return res.status(403).json();
   };
 
@@ -394,10 +379,11 @@ function Bilhete(bd) {
     const code = parseInt(req.params.id);
 
     const checkCodigo = await conexao.execute(
-      "SELECT * FROM Bilhete WHERE cod_bilhete = :0",
+      `SELECT BILHETE.COD_BILHETE, TO_CHAR(BILHETE.DATA_HORA_GERACAO_BILHETE, 'HH24:MI:SS DD/MM/YYYY') AS "DATA_HORA_GERACAO_BILHETE", TO_CHAR(RECARGA.DATA_HORA_RECARGA, 'HH24:MI:SS DD/MM/YYYY') AS "DATA_HORA_RECARGA", RECARGA.TIPO_RECARGA, TO_CHAR(UTILIZACAO.DATA_HORA_UTILIZACAO, 'HH24:MI:SS DD/MM/YYYY') AS "DATA_HORA_UTILIZACAO" FROM BILHETE JOIN RECARGA ON BILHETE.COD_BILHETE = RECARGA.FK_BILHETE_COD JOIN UTILIZACAO ON RECARGA.COD_RECARGA = UTILIZACAO.FK_RECARGA_COD WHERE BILHETE.COD_BILHETE IN (:0) ORDER BY UTILIZACAO.DATA_HORA_UTILIZACAO DESC`,
       [code]
     );
-    console.log(checkCodigo);
+
+    return res.status(200).json(checkCodigo.rows);
   };
 }
 
