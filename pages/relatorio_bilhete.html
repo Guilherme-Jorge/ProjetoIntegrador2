@@ -4,15 +4,15 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RENACARD: Entrar código</title>
+    <title>RENACARD: Relatório do bilhete</title>
     <link
       rel="stylesheet"
       type="text/css"
       media="screen"
-      href="../styles/recarga_cod.css"
+      href="../styles/relatorio_bilhete.css"
     />
     <script src="../server/node_modules/axios/dist/axios.min.js"></script>
-    <script src="../scripts/recarga_cod_3.js"></script>
+    <script src="../scripts/relatorio_bilhete.js"></script>
     <link rel="stylesheet" href="../fonts/inter/inter.css" />
   </head>
   <body>
@@ -30,21 +30,26 @@
       <div class="divvertical" id="divcomousar"></div>
     </header>
     <main>
-      <img src="../images/RENACARD_logo.png" id="imglogocentral" />
-      <form id="caixatexto" onsubmit="fazRecarga()">
-        <input
-          type="number"
-          placeholder="Digite o número do seu bilhete"
-          id="cod"
-        />
-        <button class="btnbuscar" type="submit" value="Submit">
-          <img id="imglupa" src="../images/lupa.png" />
-        </button>
-      </form>
-      <div id="texttype">Tipo da Recarga:</div>
+      <div id="titulo">Relatório de recargas</div>
+      <div id="linha"></div>
+      <div id="bilhete">Bilhete Único</div>
+      <div id="codigo"></div>
       <br />
-      <div id="type">30 Dias</div>
-      <div id="textpreco">Preço: R$200,00</div>
+      <div id="codigo_cod"></div>
+      <div id="data"></div>
+      <br />
+      <div id="data_cod"></div>
+
+      <table>
+        <thead>
+          <tr>
+            <th id="tipo">Tipo da Recarga</th>
+            <th id="data_table">Data da Recarga</th>
+            <th id="utilizar">Data da Utilização</th>
+          </tr>
+        </thead>
+        <tbody id="table"></tbody>
+      </table>
     </main>
     <footer id="retfooter">
       <p id="project">Projeto Integrador 2: Bilhete Urbano</p>

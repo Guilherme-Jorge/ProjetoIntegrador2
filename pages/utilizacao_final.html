@@ -4,18 +4,19 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RENACARD: Entrar código</title>
+    <title>RENACARD: Utilização do bilhete</title>
     <link
       rel="stylesheet"
       type="text/css"
       media="screen"
-      href="../styles/autenticar_cod.css"
+      href="../styles/utilizacao_final.css"
     />
-    <script src="../scripts/autenticar_cod.js"></script>
+    <script src="../server/node_modules/axios/dist/axios.min.js"></script>
+    <script src="../scripts/utilizacao_final.js"></script>
     <link rel="stylesheet" href="../fonts/inter/inter.css" />
   </head>
   <body>
-    <nav id="navmain">
+    <header id="navmain">
       <a href="../index.html">
         <div class="retangulo" id="retlogo">
           <img
@@ -27,22 +28,24 @@
       </a>
       <a id="comousar" href="./como_usar.html">Como usar</a>
       <div class="divvertical" id="divcomousar"></div>
-      <a id="ptransporte" href="./pontos_transporte.html"
-        >Pontos de transporte</a
-      >
-      <div class="divvertical" id="divptransporte"></div>
-    </nav>
+    </header>
     <main>
-      <img src="../images/RENACARD_logo.png" id="imglogocentral" />
-      <form id="caixatexto">
-        <input
-          type="text"
-          class="input"
-          placeholder="Digite o número do seu bilhete"
+      <div id="successgerar"></div>
+      <div id="codbilhete"></div>
+      <br />
+      <div id="cod"></div>
+      <div class="retangulo" id="retbilhete">
+        <img
+          id="imgbilhete"
+          src="../images/RENACARD_bilhete.png"
+          title="RENACARD"
         />
-        <button class="btnbuscar" type="submit"></button>
-      </form>
-      <img id="imglupa" src="../images/lupa.png" />
+      </div>
+      <div class="tempo" id="escrito_tempo1"></div>
+      <br />
+      <div class="tempo" id="tempo"></div>
+      <br />
+      <div class="tempo" id="escrito_tempo2"></div>
     </main>
     <footer id="retfooter">
       <p id="project">Projeto Integrador 2: Bilhete Urbano</p>

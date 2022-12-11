@@ -1,7 +1,6 @@
 :root {
   font-family: "Inter", sans-serif;
 }
-
 @supports (font-variation-settings: normal) {
   :root {
     font-family: "Inter var", sans-serif;
@@ -16,7 +15,6 @@
   height: 5.208vw;
   left: 0vw;
   top: 0vw;
-
   background: #2e3038;
 }
 
@@ -82,139 +80,178 @@
   top: 1.042vw;
 }
 
-#imglogocentral {
-  /* Imagem da logo no centro */
+#successgerar {
+  /* Mensagem de geração */
 
   position: absolute;
-  width: 28.333vw;
-  left: 35.833vw;
-  top: 15.365vw;
-
-  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
-}
-
-#caixatexto {
-  /* Caixa de texto */
-
-  position: absolute;
-  width: 32.135vw;
-  height: 3.542vw;
-  left: 33.906vw;
-  top: 26.146vw;
-
-  background: #d9d9d9;
-  border-radius: 1.771vw;
-}
-
-.btnbuscar {
-  /* Botão para acionar a pesquisa */
-
-  position: absolute;
-  width: 4.271vw;
-  height: 3.542vw;
-  left: 27.934vw;
-
-  background: #000000;
-  border-radius: 1.771vw;
-}
-
-#cod {
-  /* Barra de pesquisa*/
-
-  position: absolute;
-  width: 23.194vw;
-  height: 1.875vw;
-  left: 2.656vw;
-  top: 0.833vw;
+  width: 33.125vw;
+  height: 2.292vw;
+  left: 33.403vw;
+  top: 11.597vw;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 1.49vw;
-  line-height: 1.875vw;
-  border: 0 none;
-  outline: 0;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+  /* identico ao box height */
 
-  background-color: #d9d9d9;
+  color: #000000;
 }
 
-.btnbuscar:hover {
-  background-color: #2e3038;
-}
-
-::placeholder {
-  /* Cor do texto do input*/
-  color: #b1b1b1;
-}
-
-#imglupa {
-  /* Lupa */
-
-  position: absolute;
-  width: 1.778vw;
-  height: 1.883vw;
-  left: 1.2vw;
-  top: 0.9vw;
-}
-
-#texttype {
-  /* Tipo da Recarga:  */
+#codbilhete {
+  /* Código do bilhete */
 
   position: absolute;
   height: 2.292vw;
-  left: 34.931vw;
-  top: 33.264vw;
+  left: 40.903vw;
+  top: 14.375vw;
 
   font-family: "Inter";
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 1.875vw;
   line-height: 2.292vw;
-  /* identical to box height */
+  /* identico ao box height */
 
+  color: #000000;
+}
+
+#cod {
+  /* Código gerado */
+
+  position: absolute;
+
+  left: 48.503vw;
+  top: 14.375vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+
+  /* identico ao box height */
+
+  color: #000000;
+}
+
+#imgbilhete {
+  /* Bilhete criado */
+
+  position: absolute;
+  width: 31.25vw;
+  height: 19.622vw;
+  left: 34.375vw;
+  top: 20.278vw;
+
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
+}
+
+#successgerar {
+  /* Mensagem de geração */
+
+  position: absolute;
+  width: 33.125vw;
+  height: 2.292vw;
+  left: 37.403vw;
+  top: 11.597vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+  /* identico ao box height */
+
+  color: #000000;
+}
+
+#codbilhete {
+  /* Código do bilhete */
+
+  position: absolute;
+  height: 2.292vw;
+  left: 40.903vw;
+  top: 14.375vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+  /* identico ao box height */
+
+  color: #000000;
+}
+
+#cod {
+  /* Código gerado */
+
+  position: absolute;
+
+  left: 48.503vw;
+  top: 14.375vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+
+  /* identico ao box height */
+
+  color: #000000;
+}
+
+#imgbilhete {
+  /* Bilhete criado */
+
+  position: absolute;
+  width: 31.25vw;
+  height: 19.622vw;
+  left: 34.375vw;
+  top: 20.278vw;
+
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
+}
+
+.tempo {
+  /* Texto indicando tempo restante */
+
+  position: absolute;
+  width: 45.139vw;
+  height: 3.264vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.083vw;
+  line-height: 2.5vw;
   text-align: center;
 
   color: #000000;
 }
 
-#type {
-  /* Tipo da recarga */
+#escrito_tempo1 {
+  /* Parte 1 */
 
-  position: absolute;
-  height: 2.292vw;
-  left: 50.4vw;
-  top: 33.264vw;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.875vw;
-  line-height: 2.292vw;
-  /* identical to box height */
-
-  text-align: center;
-
-  color: #000000;
+  left: 10.431vw;
+  top: 44.375vw;
 }
 
-#textpreco {
-  /* Preço:  R$ */
+#tempo {
+  /* Tempo em si */
 
-  position: absolute;
-  height: 2.292vw;
-  left: 44.306vw;
-  top: 36.528vw;
+  left: 21.194vw;
+  top: 44.375vw;
+}
 
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.875vw;
-  line-height: 2.292vw;
-  /* identical to box height */
+#escrito_tempo2 {
+  /* Parte 2 */
 
-  text-align: center;
-
-  color: #000000;
+  left: 38.903vw;
+  top: 44.375vw;
 }
 
 footer {

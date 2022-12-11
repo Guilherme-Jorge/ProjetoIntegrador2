@@ -14,5 +14,40 @@
     <script src="../scripts/relatorio_cod.js"></script>
     <link rel="stylesheet" href="../fonts/inter/inter.css" />
   </head>
-  <body></body>
+  <body>
+    <header id="navmain">
+      <a href="../index.html">
+        <div class="retangulo" id="retlogo">
+          <img
+            id="imglogo"
+            src="../images/RENACARD_logo.png"
+            title="RENACARD"
+          />
+        </div>
+      </a>
+      <a id="comousar" href="./como_usar.html">Como usar</a>
+      <div class="divvertical" id="divcomousar"></div>
+    </header>
+    <main>
+      <img src="../images/RENACARD_logo.png" id="imglogocentral" />
+      <form id="caixatexto" onsubmit="fazRelatorio()">
+        <input
+          type="number"
+          placeholder="Digite o número do seu bilhete"
+          id="cod"
+        />
+        <button class="btnbuscar" type="submit" value="Submit">
+          <img id="imglupa" src="../images/lupa.png" />
+        </button>
+      </form>
+    </main>
+    <footer id="retfooter">
+      <p id="project">Projeto Integrador 2: Bilhete Urbano</p>
+      <p id="members">
+        André Laudares Soares - 22001646 Guilherme Ferreira Jorge - 22007283
+        Luca Diniz Santos - 22011392 Matheus Ribeiro Marafon - 22004817 Raul
+        Migliari - 22005575
+      </p>
+    </footer>
+  </body>
 </html>

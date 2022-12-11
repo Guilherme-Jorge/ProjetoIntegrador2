@@ -4,18 +4,18 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RENACARD: Autenticar final</title>
+    <title>RENACARD: Entrar código</title>
     <link
       rel="stylesheet"
       type="text/css"
       media="screen"
-      href="../styles/autenticar_final.css"
+      href="../styles/utilizacao_cod.css"
     />
-    <script src="../scripts/autenticar_final.js"></script>
+    <script src="../scripts/utilizacao_cod.js"></script>
     <link rel="stylesheet" href="../fonts/inter/inter.css" />
   </head>
   <body>
-    <nav id="navmain">
+    <header id="navmain">
       <a href="../index.html">
         <div class="retangulo" id="retlogo">
           <img
@@ -27,28 +27,19 @@
       </a>
       <a id="comousar" href="./como_usar.html">Como usar</a>
       <div class="divvertical" id="divcomousar"></div>
-      <a id="ptransporte" href="./pontos_transporte.html"
-        >Pontos de transporte</a
-      >
-      <div class="divvertical" id="divptransporte"></div>
-    </nav>
+    </header>
     <main>
-      <div id="successgerar"></div>
-      <div id="codbilhete"></div>
-      <br />
-      <div id="cod"></div>
-      <div class="retangulo" id="retbilhete">
-        <img
-          id="imgbilhete"
-          src="../images/RENACARD_bilhete.png"
-          title="RENACARD"
+      <img src="../images/RENACARD_logo.png" id="imglogocentral" />
+      <form id="caixatexto" onsubmit="fazUtilizacao()">
+        <input
+          type="number"
+          placeholder="Digite o número do seu bilhete"
+          id="cod"
         />
-      </div>
-      <div id="escrito_tempo1">Você tem</div>
-      <br />
-      <div id="tempo"></div>
-      <br />
-      <div id="escrito_tempo2">restante nessa recarga</div>
+        <button class="btnbuscar" type="submit" value="Submit">
+          <img id="imglupa" src="../images/lupa.png" />
+        </button>
+      </form>
     </main>
     <footer id="retfooter">
       <p id="project">Projeto Integrador 2: Bilhete Urbano</p>

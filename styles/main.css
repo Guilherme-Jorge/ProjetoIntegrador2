@@ -64,25 +64,6 @@
   color: #ffffff;
 }
 
-#ptransporte {
-  /* Pontos de transporte */
-
-  position: absolute;
-  width: 16.181vw;
-  height: 1.875vw;
-  left: 50.938vw;
-  top: 1.667vw;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.562vw;
-  line-height: 1.875vw;
-  text-decoration: none;
-
-  color: #ffffff;
-}
-
 .divvertical {
   /* Divisórias verticais */
 
@@ -97,13 +78,6 @@
   /* Divisória Como Usar */
 
   left: 46.458vw;
-  top: 1.042vw;
-}
-
-#divptransporte {
-  /* Divisória 2 */
-
-  left: 71.667vw;
   top: 1.042vw;
 }
 
@@ -126,8 +100,8 @@
   color: #000000;
 }
 
-#retautenticar {
-  /* Retângulo autenticar */
+#retgerar {
+  /* Retângulo gerar bilhete */
 
   position: absolute;
   width: 11.979vw;
@@ -139,8 +113,8 @@
   border-radius: 1.875vw;
 }
 
-#autenticar {
-  /* Botão autenticar */
+#gerar {
+  /* Botão gerar bilhete */
 
   position: absolute;
   width: 8.194vw;
@@ -151,7 +125,7 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 1.562vw;
+  font-size: 1.262vw;
   line-height: 1.875vw;
   text-decoration: none;
 
@@ -361,8 +335,8 @@
   color: #000000;
 }
 
-#divgerar {
-  /* Divisória tipos de recarga - gerar bilhete */
+#divutilizar {
+  /* Divisória tipos de recarga - utilização */
 
   left: 15.99vw;
   top: 44.74vw;
@@ -382,8 +356,8 @@
   border-radius: 2.005vw;
 }
 
-#retgerar {
-  /* Retângulo para o botão gerar bilhete */
+#retutilizar {
+  /* Retângulo para o botão utilização */
 
   left: 24.271vw;
 }
@@ -411,11 +385,11 @@
   color: #ffffff;
 }
 
-#gerar {
-  /* Botão gerar bilhete */
+#utilizar {
+  /* Botão utilização */
 
   width: 10vw;
-  left: 3.75vw;
+  left: 5vw;
 }
 
 #relatorio {

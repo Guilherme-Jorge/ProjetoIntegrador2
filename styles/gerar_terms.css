@@ -64,25 +64,6 @@
   color: #ffffff;
 }
 
-#ptransporte {
-  /* Pontos de transporte */
-
-  position: absolute;
-  width: 16.181vw;
-  height: 1.875vw;
-  left: 50.938vw;
-  top: 1.667vw;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.562vw;
-  line-height: 1.875vw;
-  text-decoration: none;
-
-  color: #ffffff;
-}
-
 .divvertical {
   /* Divisórias verticais */
 
@@ -100,19 +81,12 @@
   top: 1.042vw;
 }
 
-#divptransporte {
-  /* Divisória 2 */
-
-  left: 71.667vw;
-  top: 1.042vw;
-}
-
 #terms {
   /* Termos de uso */
 
   position: absolute;
-  width: 67.865vw ;
-  height: 34.271vw ;
+  width: 67.865vw;
+  height: 34.271vw;
   left: 12.5vw;
   top: 9.635vw;
 }

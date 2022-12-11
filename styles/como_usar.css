@@ -1,0 +1,634 @@
+:root {
+  font-family: "Inter", sans-serif;
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
+#navmain {
+  /* Barra de Navegação */
+
+  position: absolute;
+  width: 100%;
+  height: 5.208vw;
+  left: 0vw;
+  top: 0vw;
+
+  background: #2e3038;
+}
+
+#retlogo {
+  /* Retângulo Logo */
+
+  position: absolute;
+  width: 22.76vw;
+  height: 5.208vw;
+  left: 4.583vw;
+  top: 0vw;
+
+  background: #b1b4be;
+}
+
+#imglogo {
+  /* Logo */
+
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 20.703vw;
+  height: 2.604vw;
+  left: 0.99vw;
+  top: 1.302vw;
+
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
+}
+
+#comousar {
+  /* Botão como usar */
+
+  position: absolute;
+  width: 8.333vw;
+  height: 1.875vw;
+  left: 32.76vw;
+  top: 1.667vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
+  text-decoration: none;
+
+  color: #ffffff;
+}
+
+.divvertical {
+  /* Divisórias verticais */
+
+  position: absolute;
+  width: 0.052vw;
+  height: 3.177vw;
+
+  background: #d9d9d9;
+}
+
+#divcomousar {
+  /* Divisória Como Usar */
+
+  left: 46.458vw;
+  top: 1.042vw;
+}
+
+#headermain {
+  /* Como usar */
+
+  position: absolute;
+  width: 9.931vw;
+  height: 2.292vw;
+  left: 4.583vw;
+  top: 8.194vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+
+  color: #000000;
+}
+
+#divhorizontal {
+  position: absolute;
+  width: 91.458vw;
+  height: 0vw;
+  left: 3.819vw;
+  top: 11.597vw;
+
+  border: 0.75px solid #000000;
+}
+
+#titulogerar {
+  /* Geração */
+
+  position: absolute;
+  width: 8.194vw;
+  height: 2.292vw;
+  left: 14.722vw;
+  top: 13.472vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+
+  text-align: center;
+
+  color: #000000;
+}
+
+#divgerar {
+  /* Retângulo da geração */
+
+  position: absolute;
+  width: 27.222vw;
+  height: 18.819vw;
+  left: 5.208vw;
+  top: 16.528vw;
+
+  background: #aaaaaa;
+  border-radius: 1.953vw;
+}
+
+#gerar {
+  /* Texto da geração */
+
+  position: absolute;
+  width: 25.903vw;
+  height: 3.542vw;
+  left: 0.625vw;
+  top: 0.764vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.938vw;
+  line-height: 1.111vw;
+  text-align: center;
+
+  color: #000000;
+}
+
+#imggerar {
+  /* Imagem da geração */
+
+  position: absolute;
+  width: 25.903vw;
+  height: 12.847vw;
+  left: 0.694vw;
+  top: 4.861vw;
+}
+
+#tituloutilizar {
+  /* Utilização */
+
+  position: absolute;
+  width: 15.694vw;
+  height: 2.431vw;
+  left: 11.111vw;
+  top: 37.361vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+  text-align: center;
+
+  color: #000000;
+}
+
+#divutilizar {
+  /* Retângulo da utilização */
+
+  position: absolute;
+  width: 27.292vw;
+  height: 24.931vw;
+  left: 5.139vw;
+  top: 40.556vw;
+
+  background: #aaaaaa;
+  border-radius: 1.953vw;
+}
+
+#utilizar1 {
+  /* Texto 1 da utilização */
+
+  position: absolute;
+  width: 25.208vw;
+  height: 3.889vw;
+  left: 1.042vw;
+  top: 1.111vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.938vw;
+  line-height: 1.111vw;
+  text-align: center;
+
+  color: #000000;
+}
+
+#imgutilizar {
+  /* Imagem da utilização */
+
+  position: absolute;
+  width: 24.585vw;
+  height: 13.653vw;
+  left: 1.389vw;
+  top: 5.625vw;
+}
+
+#utilizar2 {
+  /* Texto 2 da utilização */
+
+  position: absolute;
+  width: 25.208vw;
+  height: 3.889vw;
+  left: 1.389vw;
+  top: 20.486vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.938vw;
+  line-height: 1.111vw;
+  text-align: center;
+
+  color: #000000;
+}
+
+#titulorecarga {
+  /* Recarga */
+
+  position: absolute;
+  width: 7.569vw;
+  height: 2.292vw;
+  left: 45.139vw;
+  top: 13.472vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+
+  text-align: center;
+
+  color: #000000;
+}
+
+#divrecarga {
+  /* Retângulo da recarga */
+
+  position: absolute;
+  width: 27.222vw;
+  height: 36.736vw;
+  left: 35.764vw;
+  top: 16.458vw;
+
+  background: #aaaaaa;
+  border-radius: 1.953vw;
+}
+
+#recarga1 {
+  /* Texto 1 da recarga */
+
+  position: absolute;
+  width: 25.903vw;
+  height: 3.611vw;
+  left: 0.625vw;
+  top: 0.694vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.938vw;
+  line-height: 1.111vw;
+  text-align: center;
+
+  color: #000000;
+}
+
+#buscarecarga {
+  /* Barra de busca da recarga */
+
+  position: absolute;
+  width: 24.792vw;
+  height: 2.917vw;
+  left: 1.389vw;
+  top: 5.069vw;
+}
+
+#recarga2 {
+  /* Texto 2 da recarga */
+
+  position: absolute;
+  width: 25.139vw;
+  height: 2.708vw;
+  left: 1.181vw;
+  top: 8.75vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.938vw;
+  line-height: 1.111vw;
+  text-align: center;
+
+  color: #000000;
+}
+
+#unico1 {
+  /* Bilhete Único */
+
+  position: absolute;
+  width: 8.681vw;
+  height: 1.667vw;
+  left: 1.25vw;
+  top: 11.319vw;
+
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.354vw;
+  line-height: 1.667vw;
+
+  color: #000000;
+}
+
+#unico2 {
+  /* Texto do bilihete único */
+
+  position: absolute;
+  width: 20.417vw;
+  height: 3.333vw;
+  left: 1.181vw;
+  top: 13.125vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.938vw;
+  line-height: 1.111vw;
+
+  color: #000000;
+}
+
+#duplo1 {
+  /* Bilhete Duplo */
+
+  position: absolute;
+  width: 8.75vw;
+  height: 1.667vw;
+  left: 1.181vw;
+  top: 17.014vw;
+
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.354vw;
+  line-height: 1.667vw;
+
+  color: #000000;
+}
+
+#duplo2 {
+  /* Texto do bilihete duplo */
+
+  position: absolute;
+  width: 20.417vw;
+  height: 4.444vw;
+  left: 1.181vw;
+  top: 18.889vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.938vw;
+  line-height: 1.111vw;
+
+  color: #000000;
+}
+
+#sete1 {
+  /* Bilhete 7 Dias */
+
+  position: absolute;
+  width: 8.889vw;
+  height: 1.667vw;
+  left: 1.181vw;
+  top: 23.889vw;
+
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.354vw;
+  line-height: 1.667vw;
+
+  color: #000000;
+}
+
+#sete2 {
+  /* Texto do bilihete 7 dias */
+  position: absolute;
+  width: 20.139vw;
+  height: 3.333vw;
+  left: 1.181vw;
+  top: 25.764vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.938vw;
+  line-height: 1.111vw;
+
+  color: #000000;
+}
+
+#trinta1 {
+  /* Bilhete 30 Dias */
+
+  position: absolute;
+  width: 9.861vw;
+  height: 1.667vw;
+  left: 1.181vw;
+  top: 30.139vw;
+
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.354vw;
+  line-height: 1.667vw;
+
+  color: #000000;
+}
+
+#trinta2 {
+  /* Texto do bilihete 30 dias */
+  position: absolute;
+  width: 20.139vw;
+  height: 3.333vw;
+  left: 1.181vw;
+  top: 32.014vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.938vw;
+  line-height: 1.111vw;
+
+  color: #000000;
+}
+
+#titulorelatorio {
+  /* Relatório */
+
+  position: absolute;
+  width: 8.264vw;
+  height: 2.292vw;
+  left: 75.764vw;
+  top: 13.472vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+
+  text-align: center;
+
+  color: #000000;
+}
+
+#divrelatorio {
+  /* Retângulo do relatório */
+
+  position: absolute;
+  width: 27.222vw;
+  height: 22.708vw;
+  left: 66.319vw;
+  top: 16.458vw;
+
+  background: #aaaaaa;
+  border-radius: 1.953vw;
+}
+
+#relatorio {
+  /* Texto do relatório */
+  position: absolute;
+  width: 25.903vw;
+  height: 2.569vw;
+  left: 0.625vw;
+  top: 1.389vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.938vw;
+  line-height: 1.111vw;
+  text-align: center;
+
+  color: #000000;
+}
+
+#buscarelatorio {
+  /* Barra de busca do relatório */
+
+  position: absolute;
+  width: 24.792vw;
+  height: 2.917vw;
+  left: 1.181vw;
+  top: 5.069vw;
+}
+
+#imgrelatorio1 {
+  /* Imagem 1 do relatório */
+
+  position: absolute;
+  width: 19.514vw;
+  height: 5.417vw;
+  left: 3.819vw;
+  top: 9.375vw;
+}
+
+#imgrelatorio2 {
+  /* Imagem 2 do relatório */
+  position: absolute;
+  width: 19.514vw;
+  height: 5.365vw;
+  left: 3.819vw;
+  top: 15.556vw;
+}
+
+#retornar {
+  /* Texto de exemplo para retornar */
+
+  position: absolute;
+  width: 38.542vw;
+  height: 2.292vw;
+  left: 60.347vw;
+  top: 56.806vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875vw;
+  line-height: 2.292vw;
+
+  text-align: center;
+
+  color: #000000;
+}
+
+#imgretornar {
+  /* Logo para retornar */
+
+  position: absolute;
+  width: 22.76vw;
+  height: 5.208vw;
+  left: 68.403vw;
+  top: 59.444vw;
+}
+
+footer {
+  /* Retângulo rodapé */
+
+  position: absolute;
+  width: 100%;
+  height: 19.236vw;
+  left: 0vw;
+  top: 68.611vw;
+
+  background: #2e3038;
+}
+
+#project {
+  /* Projeto Integrador 2 */
+
+  position: absolute;
+  width: 27.361vw;
+  height: 1.875vw;
+  left: 4.583vw;
+  top: 4.653vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
+
+  color: #ffffff;
+}
+
+#members {
+  /* Integrantes do grupo */
+
+  position: absolute;
+  width: 28.542vw;
+  height: 9.375vw;
+  left: 66.736vw;
+  top: 4.653vw;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.562vw;
+  line-height: 1.875vw;
+  text-align: right;
+
+  color: #ffffff;
+}

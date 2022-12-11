@@ -1,7 +1,6 @@
 :root {
   font-family: "Inter", sans-serif;
 }
-
 @supports (font-variation-settings: normal) {
   :root {
     font-family: "Inter var", sans-serif;
@@ -65,25 +64,6 @@
   color: #ffffff;
 }
 
-#ptransporte {
-  /* Pontos de transporte */
-
-  position: absolute;
-  width: 16.181vw;
-  height: 1.875vw;
-  left: 50.938vw;
-  top: 1.667vw;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.562vw;
-  line-height: 1.875vw;
-  text-decoration: none;
-
-  color: #ffffff;
-}
-
 .divvertical {
   /* Divisórias verticais */
 
@@ -101,82 +81,111 @@
   top: 1.042vw;
 }
 
-#divptransporte {
-  /* Divisória 2 */
-
-  left: 71.667vw;
-  top: 1.042vw;
-}
-
-#imglogocentral {
-  /* Imagem da logo no centro */
+#titulo {
+  /* Relatório de recargas */
 
   position: absolute;
-  width: 28.333vw;
-  left: 35.833vw;
-  top: 15.365vw;
-
-  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
-}
-
-#caixatexto {
-  /* Caixa de texto */
-
-  position: absolute;
-  width: 32.135vw;
-  height: 3.542vw;
-  left: 33.906vw;
-  top: 26.146vw;
-
-  background: #d9d9d9;
-  border-radius: 1.771vw;
-}
-
-.btnbuscar {
-  /* Botão para acionar a pesquisa */
-
-  position: absolute;
-  width: 4.271vw;
-  height: 3.542vw;
-  left: 27.934vw;
-
-  background: #000000;
-  border-radius: 1.771vw;
-}
-
-.input {
-  /* Barra de pesquisa*/
-
-  position: absolute;
-  width: 23.194vw;
-  height: 1.875vw;
-  left: 2.656vw;
-  top: 0.833vw;
+  width: 281px;
+  height: 33px;
+  left: 579px;
+  top: 123px;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 1.562vw;
-  line-height: 1.875vw;
-  border: 0 none;
-  outline: 0;
+  font-size: 27px;
+  line-height: 33px;
+  /* identical to box height */
 
-  background-color: #d9d9d9;
+  color: #000000;
 }
 
-::placeholder {
-  /* Cor do texto do input*/
-  color: #b1b1b1;
-}
-
-#imglupa {
-  /* Lupa */
+#linha {
+  /* Line 7 */
 
   position: absolute;
-  width: 1.778vw;
-  height: 1.883vw;
-  left: 63.021vw;
-  top: 26.979vw;
+  width: 600px;
+  height: 0px;
+  left: 420px;
+  top: 169px;
+
+  border: 0.75px solid #000000;
+}
+
+#bilhete {
+  /* Bilhete único */
+
+  position: absolute;
+  width: 197.25px;
+  height: 30px;
+  left: 104.25px;
+  top: 215.25px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+
+  color: #2e3038;
+}
+
+#codigo {
+  /* Código: ##### */
+
+  position: absolute;
+  width: 220.5px;
+  height: 30px;
+  left: 387.75px;
+  top: 216.75px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+
+  color: #2e3038;
+}
+
+#data {
+  /* Data da geração do bilhete: ##/##/## */
+
+  position: absolute;
+  width: 570.75px;
+  height: 30px;
+  left: 747px;
+  top: 217.5px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+
+  color: #2e3038;
+}
+
+table {
+  position: relative;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+
+  color: #2e3038;
+
+  border: 1px solid white;
+  width: 1304px;
+  height: 20px;
+  left: 66px;
+  top: 110px;
+}
+
+tr:nth-child(even) {
+  background-color: #a3a3a3;
 }
 
 footer {

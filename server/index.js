@@ -268,7 +268,11 @@ function Bilhete(bd) {
           const sql2 = "COMMIT";
           await conexao.execute(sql2);
 
-          return res.status(200).json(select.rows[0]);
+          const sql10 = `SELECT UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO + INTERVAL '40' MINUTE AS "Tempo" FROM UTILIZACAO WHERE FK_RECARGA_COD IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC`;
+
+          const select1 = await conexao.execute(sql10, instruction);
+
+          return res.status(200).json(select1.rows[0]);
         } catch (err) {
           console.log(err);
 
@@ -301,7 +305,11 @@ function Bilhete(bd) {
             const sql2 = "COMMIT";
             await conexao.execute(sql2);
 
-            return res.status(200).json(select.rows[0]);
+            const sql10 = `SELECT UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO + INTERVAL '7' DAY AS "Tempo" FROM UTILIZACAO WHERE FK_RECARGA_COD IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC`;
+
+            const select1 = await conexao.execute(sql10, instruction);
+
+            return res.status(200).json(select1.rows[0]);
           } catch (err) {
             console.log(err);
 
@@ -333,7 +341,11 @@ function Bilhete(bd) {
             const sql2 = "COMMIT";
             await conexao.execute(sql2);
 
-            return res.status(200).json(select.rows[0]);
+            const sql10 = `SELECT UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO + INTERVAL '30' DAY AS "Tempo" FROM UTILIZACAO WHERE FK_RECARGA_COD IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC`;
+
+            const select1 = await conexao.execute(sql10, instruction);
+
+            return res.status(200).json(select1.rows[0]);
           } catch (err) {
             console.log(err);
 
@@ -364,7 +376,11 @@ function Bilhete(bd) {
           const sql2 = "COMMIT";
           await conexao.execute(sql2);
 
-          return res.status(200).json(select.rows[0]);
+          const sql10 = `SELECT UTILIZACAO.DATA_HORA_INICIAL_UTILIZACAO + INTERVAL '40' MINUTE AS "Tempo" FROM UTILIZACAO WHERE FK_RECARGA_COD IN (:0) AND DATA_HORA_INICIAL_UTILIZACAO IS NOT NULL ORDER BY DATA_HORA_INICIAL_UTILIZACAO DESC`;
+
+          const select1 = await conexao.execute(sql10, instruction);
+
+          return res.status(200).json(select1.rows[0]);
         } catch (err) {
           console.log(err);
 
