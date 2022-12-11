@@ -95,7 +95,6 @@
   font-weight: 700;
   font-size: 27px;
   line-height: 33px;
-  /* identical to box height */
 
   color: #000000;
 }
@@ -134,9 +133,26 @@
   /* Código: ##### */
 
   position: absolute;
-  width: 220.5px;
   height: 30px;
   left: 387.75px;
+  top: 216.75px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+
+  color: #2e3038;
+}
+
+#codigo_cod {
+  /* Código: ##### */
+
+  position: absolute;
+  width: 220.5px;
+  height: 30px;
+  left: 510px;
   top: 216.75px;
 
   font-family: "Inter";
@@ -166,6 +182,24 @@
   color: #2e3038;
 }
 
+#data_cod {
+  /* Data da geração do bilhete: ##/##/## */
+
+  position: absolute;
+  width: 570.75px;
+  height: 30px;
+  left: 1160px;
+  top: 217.5px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+
+  color: #2e3038;
+}
+
 table {
   position: relative;
 
@@ -178,10 +212,14 @@ table {
   color: #2e3038;
 
   border: 1px solid white;
-  width: 1304px;
-  height: 20px;
+  width: 1303.5px;
   left: 66px;
-  top: 110px;
+  top: 230px;
+}
+
+thead {
+  color: #ffffff;
+  background-color: #000000;
 }
 
 tr:nth-child(even) {
@@ -195,7 +233,8 @@ footer {
   width: 100%;
   height: 19.236vw;
   left: 0vw;
-  top: 51.875vw;
+  bottom: auto;
+  margin-top: 500px;
 
   background: #2e3038;
 }

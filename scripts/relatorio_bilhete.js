@@ -7,7 +7,9 @@ axios
   .then((res) => {
     resultado(res);
   })
-  .catch((err) => {});
+  .catch((err) => {
+    erro(err);
+  });
 
 function resultado(res) {
   const { data } = res;
@@ -15,7 +17,8 @@ function resultado(res) {
   document.getElementById("codigo").innerHTML = "Código:";
   document.getElementById("codigo_cod").innerHTML = res.data[0].COD_BILHETE;
   document.getElementById("data").innerHTML = "Data da geração de bilhete:";
-  document.getElementById("data_cod").innerHTML = res.data[0].DATA_HORA_GERACAO_BILHETE;
+  document.getElementById("data_cod").innerHTML =
+    res.data[0].DATA_HORA_GERACAO_BILHETE;
 
   const table = document.getElementById("table");
 
@@ -33,4 +36,9 @@ function resultado(res) {
 
   table.innerHTML = tableRows;
 }
-function erro(err) {}
+function erro(err) {
+  document.getElementById("codigo").innerHTML =
+    "Ocorreu um erro no relatório, tente novamente!";
+
+  console.log(err);
+}

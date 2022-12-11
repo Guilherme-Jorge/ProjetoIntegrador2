@@ -34,11 +34,6 @@ function timer(res) {
         document.getElementById("tempo").innerHTML = "00:" + seconds;
       }
     }
-
-    if (distance < 0) {
-      clearInterval(x);
-      document.getElementById("tempo").innerHTML = "EXPIRED";
-    }
   }, 1000);
 }
 
